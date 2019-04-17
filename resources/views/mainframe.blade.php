@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<base href="{{asset('')}}">
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-		<meta name="csrf-token" content="{{ csrf_token() }}">
-		
+
 		@yield('title')
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -121,10 +121,11 @@
 		
 
 
-		<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
-		<script src="{{asset('js/plugins.js')}}"></script>
-		<script src="{{asset('js/app.js')}}"></script>
-		<script src="https://cdnjs.com/libraries/jquery.pjax"></script>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/app.js"></script>
+		
+
 	</body>
 
 </html>

@@ -7,6 +7,8 @@
 /*=========================================== 
  * Importing CSS Libraries
  *===========================================*/
+
+ 
 article,
 aside,
 details,
@@ -397,6 +399,9 @@ form textarea {
       color: #ffaa3c; }
   .breadcrumbs span {
     color: #84878d; }
+
+
+
 
 ul.arrow {
   list-style: none; }

@@ -27,42 +27,43 @@
 						</div>
 						<div class="movie-list">
 							<div class="movie">
-								<figure class="movie-poster"><img src="dummy/thumb-3.jpg" alt="#"></figure>
-								<div class="movie-title"><a href="single.html">Maleficient</a></div>
+								<a href="infor/Maleficient">
+								<figure class="movie-poster"><img src="{{asset('dummy/thumb-3.jpg')}}" alt="#"></figure>
+								<div class="movie-title">Maleficient</div></a>
 								<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 							</div>
 							<div class="movie">
-								<figure class="movie-poster"><img src="dummy/thumb-4.jpg" alt="#"></figure>
-								<div class="movie-title"><a href="single.html">The adventure of Tintin</a></div>
+								<figure class="movie-poster"><img src="{{asset('dummy/thumb-4.jpg')}}" alt="#"></figure>
+								<div class="movie-title"><a href="infor/The adventure of Tintin">The adventure of Tintin</a></div>
 								<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 							</div>
 							<div class="movie">
-								<figure class="movie-poster"><img src="dummy/thumb-5.jpg" alt="#"></figure>
+								<figure class="movie-poster"><img src="{{asset('dummy/thumb-5.jpg')}}" alt="#"></figure>
 								<div class="movie-title"><a href="single.html">Hobbit</a></div>
 								<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 							</div>
 							<div class="movie">
-								<figure class="movie-poster"><img src="dummy/thumb-6.jpg" alt="#"></figure>
+								<figure class="movie-poster"><img src="{{asset('dummy/thumb-6.jpg')}}" alt="#"></figure>
 								<div class="movie-title"><a href="single.html">Exists</a></div>
 								<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 							</div>
 							<div class="movie">
-								<figure class="movie-poster"><img src="dummy/thumb-1.jpg" alt="#"></figure>
+								<figure class="movie-poster"><img src="{{asset('dummy/thumb-1.jpg')}}" alt="#"></figure>
 								<div class="movie-title"><a href="single.html">Drive hard</a></div>
 								<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 							</div>
 							<div class="movie">
-								<figure class="movie-poster"><img src="dummy/thumb-2.jpg" alt="#"></figure>
+								<figure class="movie-poster"><img src="{{asset('dummy/thumb-2.jpg')}}" alt="#"></figure>
 								<div class="movie-title"><a href="single.html">Robocop</a></div>
 								<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 							</div>
 							<div class="movie">
-								<figure class="movie-poster"><img src="dummy/thumb-7.jpg" alt="#"></figure>
+								<figure class="movie-poster"><img src="{{asset('dummy/thumb-7.jpg')}}" alt="#"></figure>
 								<div class="movie-title"><a href="single.html">Life of Pi</a></div>
 								<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 							</div>
 							<div class="movie">
-								<figure class="movie-poster"><img src="dummy/thumb-8.jpg" alt="#"></figure>
+								<figure class="movie-poster"><img src="{{asset('dummy/thumb-8.jpg')}}" alt="#"></figure>
 								<div class="movie-title"><a href="single.html">The Colony</a></div>
 								<p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
 							</div>

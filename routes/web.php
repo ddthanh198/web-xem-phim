@@ -25,6 +25,7 @@ Route::get('/review', function () {
 Route::get('/login', function () {
    return view('login'); 
 });
+Route::get('/infor/{id}',['as'=>'infor','uses'=> 'HomeController@infor']);
 Route::get('/search', function () {
    return view('search'); 
 });
