@@ -7,8 +7,8 @@
 				<div class="container">
 					<div class="page">
 						<div class="breadcrumbs">
-							<a href="index.html">Home</a>
-							<a href="review.html">Movie Review</a>
+							<!-- <a href="index.html">Home</a>
+							<a href="review.html">Movie Review</a> -->
 							<span>The Croods</span>
 						</div>
 

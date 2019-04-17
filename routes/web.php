@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('main');
 
 });
+
 Route::get('/review', function () {
    return view('review'); 
 });
@@ -28,6 +29,7 @@ Route::get('/login', function () {
 Route::get('/search', function () {
    return view('search'); 
 });
+
 Route::get('/watch/{id}',['as'=>'watch','uses'=>'HomeController@watch']);
 // Route::get("/about",function(){
 // 	return view('about');
@@ -47,6 +49,4 @@ Route::get("createDB",function(){
 	echo 'Ket noi thanh cong<br />';
 	mysqli_close();
 }
-
-
 });

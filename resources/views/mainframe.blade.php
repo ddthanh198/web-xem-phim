@@ -7,19 +7,24 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		
 		@yield('title')
+		
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
 		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 		<!-- Loading main css file -->
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		
+		<link rel="stylesheet" href="/css/login.css"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 		
 		<!--[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
-
 	</head>
+
 	<body>
 		<div id="site-content">
 			<header class="site-header">
@@ -37,6 +42,7 @@
 						<ul class="menu">
 							<li class="menu-item current-menu-item"><a href="/">Home</a></li>
 							<li class="menu-item"><a href="/review">Movie reviews</a></li>
+							<li class="menu-item"><a href="/login">Login</a></li>
 						</ul> <!-- .menu -->
 
 						<form action="#" class="search-form">
@@ -48,7 +54,9 @@
 					<div class="mobile-navigation"></div>
 				</div>
 			</header>
+			
 			@yield('webMain')
+
 			<footer class="site-footer">
 				<div class="container">
 					<div class="row">
@@ -118,8 +126,6 @@
 			</footer>
 		</div>
 		<!-- Default snippet for navigation -->
-		
-
 
 		<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
 		<script src="{{asset('js/plugins.js')}}"></script>
