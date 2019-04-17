@@ -1,3 +1,4 @@
+
 <?php
 echo $link;
 ?>
@@ -320,7 +321,7 @@ echo $link;
 
 -->
 
-	<video width="640" height="267" poster="media/cars.png">
+<!-- 	<video width="640" height="267" poster="media/cars.png">
 		<source src="https://r2---sn-8pxuuxa-i5oel.googlevideo.com/videoplayback?pl=21&mv=m&ipbits=0&ms=au,onr&ei=iFmjXKOkNLWoigbc-53oAw&source=youtube&mt=1554209056&keepalive=yes&expire=1554230761&mm=31,26&mn=sn-8pxuuxa-i5oel,sn-npoe7n76&id=o-ALK6696USRdqpw_253YC4j5i9XQRRkStH2lfsnwQAKE8&clen=81211278&c=WEB&fvip=2&lmt=1550619966006674&dur=195.150&aitags=133,134,135,136,137,160,242,243,244,247,248,278,298,299,302,303,394,395,396,397,398&initcwndbps=1243750&ip=27.76.115.247&requiressl=yes&key=yt6&mime=video/webm&gir=yes&itag=303&txp=5531432&signature=16F364CC13B86791056ECEE176210D688780EB71.840DB5B10AE1E06DF6623417A14AA6059B721134&sparams=aitags,clen,dur,ei,gir,id,initcwndbps,ip,ipbits,itag,keepalive,lmt,mime,mm,mn,ms,mv,pl,requiressl,source,expire&alr=yes&cpn=3lpK0ZJyqlhfbn2k&cver=2.20190330&rn=31" type="video/mp4">
 	</video>
 	<script>
@@ -331,6 +332,6 @@ echo $link;
 				features: ['playpause','progress','volume','fullscreen']
 			});
 		});
-	</script>
+	</script> -->
 </body>
 </html>
