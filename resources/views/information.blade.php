@@ -95,8 +95,6 @@
 			<br>
 				<br>
 			<div class="info4 scroll">
-				
-				
 				<p>
 					Tuy chỉ mới ra mắt nhưng Pet Sematary (Nghĩa Địa Ma Quái) không chịu thua “đàn anh” IT của mình khi nhận được nhiều lời khen từ giới chuyên môn. 
 					Tuy chỉ mới ra mắt nhưng Pet Sematary (Nghĩa Địa Ma Quái) không chịu thua “đàn anh” IT của mình khi nhận được nhiều lời khen từ giới chuyên môn. 
