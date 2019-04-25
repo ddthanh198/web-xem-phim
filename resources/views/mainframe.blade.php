@@ -29,6 +29,26 @@
 	<link rel="stylesheet" href="/css/signup.css">
 
 	<!--[if lt IE 9]>
+	<head>
+		<base href="{{asset('')}}">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+		@yield('title')
+		
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		
+		<link rel="stylesheet" href="/css/login.css"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		
+		<!--[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
@@ -140,10 +160,19 @@
 	</div>
 	<!-- Default snippet for navigation -->
 
+<<<<<<< HEAD
 	<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
 	<script src="{{asset('js/plugins.js')}}"></script>
 	<script src="{{asset('js/app.js')}}"></script>
 	<script src="https://cdnjs.com/libraries/jquery.pjax"></script>
 </body>
+=======
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/app.js"></script>
+		
+
+	</body>
+>>>>>>> bf6040241850f48b237321d03103904308c8747c
 
 </html>

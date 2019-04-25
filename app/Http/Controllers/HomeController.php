@@ -29,4 +29,7 @@ class HomeController extends Controller
 
         return view('watch',['link'=>$id]);
     }
+    public function infor($id){
+        return view('information',['id'=>$id]);
+    }
 }
