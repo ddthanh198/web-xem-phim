@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Builder;
+use App\Category;
+use App\Film;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,7 +26,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-	Schema::defaultStringLength(225);
         //
+        Builder::macro('whereLike', function(string $attribute, string $searchTerm) {
+   return $this->orWhere($attribute, 'LIKE', "%{$searchTerm}%");
+});
+    $category=Category::all();
+    view()->share('category',$category);
+    $film=Film::all();
+    view()->share('filmHome',$film);
+
     }
 }
