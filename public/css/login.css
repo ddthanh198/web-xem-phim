@@ -31,7 +31,8 @@ html, body {
 }
 
 .card-header h3 {
-    color: white;
+    color: rgb(0, 0, 0);
+    text-align: center;
 }
 
 .social_icon {
@@ -75,7 +76,7 @@ input:focus {
 }
 
 .links {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .links a {
