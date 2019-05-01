@@ -26,9 +26,9 @@ Route::get('/review', function () {
 Route::get('/login', function () {
    return view('login'); 
 });
-Route::get('/signup', function () {
-   return view('signup'); 
-});
+// Route::get('/signup', function () {
+//    return view('signup'); 
+// });
 Route::get('/infor/{id}',['as'=>'infor','uses'=> 'HomeController@infor']);
 Route::get('/search', function () {
    return view('search'); 
@@ -113,3 +113,6 @@ Route::post('TimKiem','FilmAndCategoryController@TimKiem');
 });
 Route::get('/TrangChu','TrangChuController@category');
 //
+
+Route::get('signup', 'SignUpController@signUpForm');
+Route::post('create', 'SignUpController@signUp');
