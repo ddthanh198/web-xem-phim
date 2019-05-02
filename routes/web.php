@@ -26,9 +26,9 @@ Route::get('/review', function () {
 Route::get('/login', function () {
    return view('login'); 
 });
-Route::get('/signup', function () {
-   return view('signup'); 
-});
+// Route::get('/signup', function () {
+//    return view('signup'); 
+// });
 Route::get('/infor/{id}',['as'=>'infor','uses'=> 'HomeController@infor']);
 Route::get('/search', function () {
    return view('search'); 
@@ -117,6 +117,7 @@ Route::get('/DangNhap',function(){
 	return view('Page.dangnhap');
 });
 //
+<<<<<<< HEAD
 Route::get('WatchFilm',function(){
 	return view('watch');
 });
@@ -137,3 +138,8 @@ Route::post("signup","UserController@Signup");
 
 
 
+=======
+
+Route::get('signup', 'SignUpController@signUpForm');
+Route::post('create', 'SignUpController@signUp');
+>>>>>>> 83837fcb7daf3c33bb36f61846a662266d41e361
