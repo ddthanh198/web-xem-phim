@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 use App\Category;
 use App\Film;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
     $category=Category::all();
     view()->share('category',$category);
     $film=Film::all();
-    view()->share('filmHome',$film);
-
+   
+   
     }
 }

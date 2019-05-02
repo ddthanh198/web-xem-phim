@@ -1,8 +1,13 @@
+<?php 
+use Illuminate\Support\Facades\Auth;
+?>
 @extends('mainframe')
 @section('title')
 <title>Movie Review</title>
 @endsection
 @section('webMain')
+
+<div id="InsertComment">
 <main class="main-content">
 				<div class="container">
 					<div class="page">
@@ -125,4 +130,20 @@
 					</div>
 				</div> <!-- .container -->
 			</main>
+		</div>
+		<script type="text/javascript">
+	  $(document).ready(function(){
+            $("#ButtonSearch").click(function(){
+            	
+                 $TextSearch=$("#TextSearch").val();
+                 alert("DisPlayComment");
+                 $.get("SearchFilm/"+$TextSearch,function(data){
+                      $("#InsertComment").html(data);
+                 })
+               
+              
+
+            })
+          })
+</script>
 @endsection

@@ -26,9 +26,13 @@
                                 <label>PhoneNumber</label>
                                 <input class="form-control" name="PhoneNumber" placeholder="Nhập PhoneNumber" />
                             </div>
+                             <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" name="password" placeholder="Password"  type="password"/>
+                            </div>
                             <button type="submit" class="btn btn-default">User Add</button>
                             <button type="reset" class="btn btn-default">Reset</button>
-                        <form>
+                        </form>
                     </div>
                 </div>
                 <!-- /.row -->

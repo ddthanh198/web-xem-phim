@@ -21,7 +21,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Phone</th>
+                                
                                 <th>Delete</th>
                                 <td>Edit</td>
 
@@ -33,7 +33,7 @@
                                 <td>{{$admin->id}}</td>
                                 <td>{{$admin->name}}</td>
                                 <td>{{$admin->email}}</td>
-                                <td>{{$admin->phonenumber}}</td>
+                                
                                
                                
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="Admin/Admin/Xoa/{{$admin->id}}"> Delete</a></td>

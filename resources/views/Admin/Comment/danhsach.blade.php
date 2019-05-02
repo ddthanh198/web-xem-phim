@@ -19,8 +19,8 @@
                         <thead>
                             <tr align="center">
                                 <th>id</th>
-                                <th>iduser</th>
-                                <th>idFilm</th>
+                                <th>User</th>
+                                <th>Phim</th>
                                 <th>content</th>
                                 <th>Time</th>
                                 <th>Delete</th>
@@ -32,8 +32,8 @@
                             @foreach($comment as $comment)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$comment->id}}</td>
-                                <td>{{$comment->iduser}}</td>
-                                <td>{{$comment->idFilm}}</td>
+                                <td>{{$comment->User->name}}</td>
+                                <td>{{$comment->Film->name}}</td>
                                 <td>{{$comment->content}}</td>
 
                                 <td>{{$comment->time}}</td>

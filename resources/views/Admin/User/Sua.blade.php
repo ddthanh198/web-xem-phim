@@ -16,15 +16,19 @@
                            
                              <div class="form-group">
                                 <label>Name</label>
-                                <input class="form-control" name="Name" placeholder="{{$user->name}}" />
+                                <input class="form-control" name="Name" placeholder="" value="{{$user->name}}" />
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input class="form-control" name="Email" placeholder="{{$user->email}}" />
+                                <input class="form-control" name="Email" placeholder="" value="{{$user->email}}" />
                             </div>
                              <div class="form-group">
                                 <label>PhoneNumber</label>
-                                <input class="form-control" name="PhoneNumber" placeholder="{{$user->phonenumber}}" />
+                                <input class="form-control" name="PhoneNumber" placeholder="" value="{{$user->phonenumber}}" />
+                            </div>
+                             <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" name="password" placeholder="Password"  type="password"/>
                             </div>
                             <button type="submit" class="btn btn-default">User Add</button>
                             <button type="reset" class="btn btn-default">Reset</button>
