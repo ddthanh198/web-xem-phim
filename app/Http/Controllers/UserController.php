@@ -62,9 +62,15 @@ class UserController extends Controller
         $user=new User;
         $user->name=$request->Name;
         $user->email=$request->Email;
-         $user->phonenumber=$request->PhoneNumber;
-         $user->password=bcrypt($request->password);
+        $user->phonenumber=$request->PhoneNumber;
+        // $user->password=bcrypt($request->password);
+        $user->password=$request->password;
         $user->save();
-        return view("login");
+        return "Sign Up Successfully!";
     }
+
+    public function signUpForm() {
+        return view('signup');
+    }
+
 }
