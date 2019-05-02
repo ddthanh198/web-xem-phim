@@ -91,6 +91,6 @@
             })
           })
         
-        </script>
+    </script>
 
 @endsection
