@@ -48,7 +48,7 @@
                         <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
                     </div> 
                     
-                    <p class="text-center">Have an account? <a href="">Log In</a> </p>
+                    <p class="text-center">Have an account? <a href="login">Log In</a> </p>
                 </form>
         </div> <!-- card.// -->
 
