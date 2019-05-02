@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Category;
+use DB;
+use Hash;
+
 class UserController extends Controller
 {
     //
@@ -45,26 +48,48 @@ class UserController extends Controller
         $user->delete();
         return redirect('Admin/User/DanhSach');
     }
+
     public function postLogin(Request $request){
         $name=$request->UserName;
         $password=$request->Password;
-       if(Auth::attempt(["name"=>$name,"password"=>$password])){
-        return redirect("/");
-       }
-       else return redirect("login");
-        
+
+        $users = DB::select('select * from user where name = ?', [$name]);
+
+        if (count($users) > 0) {
+            $user = $users[0];
+            if (Hash::check($password, $user->password)) {
+                return redirect("/");
+            }
+        }
+        return redirect("login");
     }
+
     public function LogOut(){
         Auth::logout();
         return redirect("/");
     }
     public function Signup(Request $request){
+        $name = $request->Name;
+        $users = DB::select('select * from user where name = ?', [$name]);
+        if (count($users) > 0) {
+            return redirect("signup");
+        } 
+
         $user=new User;
         $user->name=$request->Name;
         $user->email=$request->Email;
-         $user->phonenumber=$request->PhoneNumber;
-         $user->password=bcrypt($request->password);
+        $user->phonenumber=$request->PhoneNumber;
+        $user->password=bcrypt($request->password);
         $user->save();
-        return view("login");
+        return redirect("/");
     }
+
+    public function signUpForm() {
+        return view('signup');
+    }
+
+    public function loginForm() {
+        return view('login');
+    }
+
 }
