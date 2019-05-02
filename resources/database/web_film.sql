@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 25, 2019 lúc 05:17 AM
+-- Thời gian đã tạo: Th5 02, 2019 lúc 06:11 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.3.2
 
@@ -52,8 +52,15 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `numFilm`) VALUES
-(1, 'Hành Động', NULL);
-(2, 'Tình Cảm',NULL);
+(1, 'Hành Động', NULL),
+(2, 'Tình Cảm', NULL),
+(3, 'Viễn Tưởng', NULL),
+(4, 'Hoạt Hình', NULL),
+(5, 'Kinh Dị', NULL),
+(6, 'Hài Kịch', NULL),
+(7, 'Trinh Thám', NULL),
+(8, 'Phiêu Lưu', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -211,7 +218,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
