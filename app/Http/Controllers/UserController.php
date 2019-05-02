@@ -45,15 +45,26 @@ class UserController extends Controller
         $user->delete();
         return redirect('Admin/User/DanhSach');
     }
+
     public function postLogin(Request $request){
         $name=$request->UserName;
         $password=$request->Password;
-       if(Auth::attempt(["name"=>$name,"password"=>$password])){
-        return redirect("/");
-       }
-       else return redirect("login");
-        
+
+        if (User::where('name', '=', $name) -> exists()) {
+            if (User::where('password', '=', $password) -> exists()) {
+                return redirect("/");
+            }
+        }
+
+        return redirect("login");
+
+        // if(Auth::attempt(["name"=>$name, "password"=>$password])) {
+        //     return redirect("/");
+        // } else {
+        //     return redirect("login"); 
+        // }
     }
+
     public function LogOut(){
         Auth::logout();
         return redirect("/");
@@ -71,6 +82,10 @@ class UserController extends Controller
 
     public function signUpForm() {
         return view('signup');
+    }
+
+    public function loginForm() {
+        return view('login');
     }
 
 }
