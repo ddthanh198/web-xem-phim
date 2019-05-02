@@ -8,7 +8,7 @@ class film extends Model
 {
     //
     public $timestamps = false;
-     protected $table="Film";
+     protected $table="film";
     public function Comment(){
     	return $this->hasMany('App\Comment','idFilm','id');
     }

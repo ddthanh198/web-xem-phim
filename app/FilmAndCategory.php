@@ -8,7 +8,7 @@ use App\Category;
 class FilmAndCategory extends Model
 {
     //
-    protected $table="FilmAndCategory";
+    protected $table="filmandcategory";
     public $timestamps = false;
     public function film(){
     	return $this->beLongsto('App\Film','idFilm','id');
