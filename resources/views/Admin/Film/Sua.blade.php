@@ -32,7 +32,7 @@
                              <label>Name</label>
                             <div class="form-group">
                
-                                <input class="form-control" name="Name" placeholder="{{$film->name}}" />
+                                <input class="form-control" name="Name" placeholder="" value="{{$film->name}}" />
                                   
                             </div>
                              
@@ -40,29 +40,34 @@
                               <label>Nổi Bật</label>
                             <div class="form-group">
                
-                                <input class="form-control" name="NoiBat" placeholder="{{$film->NoiBat}}" />
+                                <input class="form-control" name="NoiBat" placeholder=""  value="{{$film->NoiBat}}" />
                                   
                             </div>
                               <label>Nation</label>
                             <div class="form-group">
                
-                                <input class="form-control" name="Nation" placeholder="{{$film->nation}}" />
+                                <input class="form-control" name="Nation" placeholder="" value="{{$film->nation}}" />
                                   
                             </div>
                                <label>Year</label>
                             <div class="form-group">
-                                <input class="form-control" name="Year" placeholder="{{$film->year}}" />
+                                <input class="form-control" name="Year" placeholder="" value="{{$film->year}}" />
                                   
                             </div>
                                <label>Source</label>
                             <div class="form-group">
                
-                                <input class="form-control" name="Source" placeholder="{{$film->source}}" />
+                                <input class="form-control" name="Source" placeholder=""  value="{{$film->source}}" />
                                   
-                            </div>
+                            </div>  
+                            <div class="form-group">
+                               <label>Hình ảnh</label>
+                               <input type="file" name="HinhAnh" value="{{$film->hinhanh}}">
+                           </div>
+                              
                             <div class="form-group">
                                <label>Video</label>
-                               <input type="file" name="Video">
+                               <input type="file" name="Video" value="{{$film->video}}">
                            </div>
                             
                            

@@ -55,6 +55,9 @@
 </head>
 
 <body>
+	<?php
+	use Illuminate\Support\Facades\Auth;
+	?>
 	<div id="site-content">
 		<header class="site-header">
 			<div class="container">
@@ -76,9 +79,16 @@
 					<ul class="menu">
 						<li class="menu-item current-menu-item"><a href="/">Home</a></li>
 						<li class="menu-item"><a href="/review">Movie reviews</a></li>
+						  @if(Auth::User())  <li class="menu-item"><a href="#"></a><b>{{Auth::User()->name}}<b></li>
+						  	<li class="menu-item"><a href="/LogOut">Đăng Xuất</a></li>
+  
+  
+@else 
 						<li class="menu-item"><a href="/login">Login</a></li>
 						<li class="menu-item"><a href="/signup">Sign up</a></li>
-						<!-- <li class="menu-item"><a href="/search">Sign up</a></li> -->
+						@endif
+						<li class="menu-item"><input type="text" placeholder="Search..." name="Search" id="TextSearch"></li>
+							<button id="ButtonSearch"><i class="fa fa-search"></i></button>
 					</ul> <!-- .menu -->
 
 
@@ -158,21 +168,20 @@
 
 		</footer>
 	</div>
-	<!-- Default snippet for navigation -->
+		<!-- Default snippet for navigation -->
 
-<<<<<<< HEAD
+
 	<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
 	<script src="{{asset('js/plugins.js')}}"></script>
 	<script src="{{asset('js/app.js')}}"></script>
 	<script src="https://cdnjs.com/libraries/jquery.pjax"></script>
-</body>
-=======
+
+
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
 		
 
 	</body>
->>>>>>> bf6040241850f48b237321d03103904308c8747c
 
-</html>
+

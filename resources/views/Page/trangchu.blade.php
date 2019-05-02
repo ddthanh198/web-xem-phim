@@ -32,7 +32,7 @@
                         <?php $count++ ?>
 
                         <a href="#">
-                             <img class="slide-image" src="font/image/800x300.png" alt=""> </a>
+                             <img class="slide-image" src="font/image/800x300.png" alt="" width=""> </a>
                         </div>
                         @endforeach
                     </div>

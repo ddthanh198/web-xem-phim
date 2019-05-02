@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Category;
 class UserController extends Controller
@@ -21,6 +22,7 @@ class UserController extends Controller
         $user->name=$request->Name;
         $user->email=$request->Email;
          $user->phonenumber=$request->PhoneNumber;
+         $user->password=bcrypt($request->password);
         $user->save();
     	return redirect('Admin/User/DanhSach');
     }
@@ -34,6 +36,7 @@ class UserController extends Controller
         $user->name=$request->Name;
         $user->email=$request->Email;
          $user->phonenumber=$request->PhoneNumber;
+         $user->password=bcrypt($request->password);
         $user->save();
     	return redirect('Admin/User/DanhSach');
     }
@@ -41,5 +44,27 @@ class UserController extends Controller
       $user=User::find($id);
         $user->delete();
         return redirect('Admin/User/DanhSach');
+    }
+    public function postLogin(Request $request){
+        $name=$request->UserName;
+        $password=$request->Password;
+       if(Auth::attempt(["name"=>$name,"password"=>$password])){
+        return redirect("/");
+       }
+       else return redirect("login");
+        
+    }
+    public function LogOut(){
+        Auth::logout();
+        return redirect("/");
+    }
+    public function Signup(Request $request){
+        $user=new User;
+        $user->name=$request->Name;
+        $user->email=$request->Email;
+         $user->phonenumber=$request->PhoneNumber;
+         $user->password=bcrypt($request->password);
+        $user->save();
+        return view("login");
     }
 }

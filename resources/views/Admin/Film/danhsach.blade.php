@@ -20,6 +20,7 @@
                             <tr align="center">
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Hình Ảnh</th>
                                 <th>Nổi Bật</th>
                                 <th>Quốc Gia</th>
                                 <th>year</th>
@@ -36,6 +37,7 @@
                             <tr class="odd gradeX" align="center">
                                 <td>{{$film->id}}</td>
                                 <td>{{$film->name}}</td>
+                                <td><a href="Admin/Film/DanhSach"><img src="upload/hinhanh/{{$film->hinhanh}} " width="100px" height="100px"></a></td></td> 
                                 <td>{{$film->NoiBat}}</td>
                                 <td>{{$film->nation}}</td>
                                 <td>{{$film->year}}</td>

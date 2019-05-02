@@ -18,9 +18,9 @@ class AdminController extends Controller
     }
     public function PostThem(Request $request){
     	$admin=new Admin;
-        $admini->name=$request->Name;
+        $admin->name=$request->Name;
         $admin->email=$request->Email;
-        $admin->phonenumber=$request->PhoneNumber;
+       $admin->password=$request->password;
         $admin->save();
     	return redirect('Admin/Admin/DanhSach');
     }
@@ -33,13 +33,20 @@ class AdminController extends Controller
     	
         $admin->name=$request->Name;
         $admin->email=$request->Email;
-         $admin->phonenumber=$request->PhoneNumber;
+         $admin->password=$request->password;
         $admin->save();
     	return redirect('Admin/Admin/DanhSach');
     }
     public function Xoa($id){
       $Admin=Admin::find($id);
-        $Admin->Admin();
+        $Admin->delete();
         return redirect('Admin/Admin/DanhSach');
+    }
+    public function CheckUserAdmin($user){
+        $data=Admin::Where('name',$user)->get();
+        if(count($data)>0) echo 0;
+        else  echo 1;
+        
+        
     }
 }

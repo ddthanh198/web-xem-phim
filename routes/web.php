@@ -112,4 +112,28 @@ Route::get('Xoa/{idFilm}/{idCategory}','FilmAndCategoryController@Xoa');
 Route::post('TimKiem','FilmAndCategoryController@TimKiem');
 });
 Route::get('/TrangChu','TrangChuController@category');
+
+Route::get('/DangNhap',function(){
+	return view('Page.dangnhap');
+});
 //
+Route::get('WatchFilm',function(){
+	return view('watch');
+});
+Route::get('/Ajax/Like/{idUser}/{idFilm}','AjaxController@GetLike');
+Route::get('/Ajax/Dislike/{idUser}/{idFilm}','AjaxController@GetDislike');
+Route::get('Comment/Xoa/{id}','CommentController@XoaComment');
+Route::get('Comment/Insert/{idFilm}/{idUser}/{content}','CommentController@Insert');
+Route::get('Comment','CommentController@Comment');
+
+Route::get('CheckUserAdmin/{user}','AdminController@CheckUserAdmin');
+Route::get("CommentTest","CommentController@CommentTest");
+
+Route::get("SearchFilm/{id}","FilmController@SearchFilm");
+
+Route::post("login","UserController@postLogin");
+Route::get("/LogOut","UserController@LogOut");
+Route::post("signup","UserController@Signup");
+
+
+

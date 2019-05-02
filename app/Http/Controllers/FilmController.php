@@ -23,6 +23,12 @@ class FilmController extends Controller
             $file->move('upload/film/',$name);
            $film->source="upload/film/".$name;
         }
+         if($request->hasFile('HinhAnh')){
+            $file=$request->file('HinhAnh');
+            $name=$file->getClientOriginalName();
+            $file->move('upload/hinhanh/',$name);
+           $film->hinhanh=$name;
+        }
     	
         
         $film->nation=$request->Nation;
@@ -43,6 +49,12 @@ class FilmController extends Controller
             $file->move('upload/film/',$name);
            $film->source="upload/film/".$name;
         }
+         if($request->hasFile('HinhAnh')){
+            $file=$request->file('HinhAnh');
+            $name=$file->getClientOriginalName();
+            $file->move('upload/hinhanh/',$name);
+           $film->hinhanh=$name;
+        }
         $film=Film::find($id);
         $film->nation=$request->Nation;
         $film->NoiBat=$request->NoiBat;
@@ -55,5 +67,11 @@ class FilmController extends Controller
         $film=Film::find($id);
         $film->delete();
         return redirect('Admin/Film/DanhSach');
+    }
+    public function SearchFilm($idFilm){
+         return view("Watch/DisplayComment",["idFilm"=>$idFilm]);
+    }
+    public function test($id){
+    return view("test",["id"=>$id]);
     }
 }

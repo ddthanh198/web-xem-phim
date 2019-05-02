@@ -9,23 +9,23 @@
                             <small>Sửa</small>
                         </h1>
                     </div>
-                    <!-- /.col-lg-12 -->a
+                    <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
                         <form action="Admin/Admin/Sua/{{$admin->id}}" method="POST">
-                            <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                           
                             
-                            </div>
+                        
                              <div class="form-group">
                                 <label>Name</label>
-                                <input class="form-control" name="Name" placeholder="{{$admin->name}}" />
+                                <input class="form-control" name="Name" placeholder="" value="{{$admin->name}}" />
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input class="form-control" name="Email" placeholder="{{$admin->email}}" />
+                                <input class="form-control" name="Email" placeholder="" value="{{$admin->email}}" />
                             </div>
                              <div class="form-group">
-                                <label>PhoneNumber</label>
-                                <input class="form-control" name="PhoneNumber" placeholder="{{$admin->phonenumber}}" />
+                                <label>Password</label>
+                                <input class="form-control" name="password" placeholder="Nhập mật khẩu"  type="password" />
                             </div>
                             <button type="submit" class="btn btn-default">Admin Update</button>
                             <button type="reset" class="btn btn-default">Reset</button>

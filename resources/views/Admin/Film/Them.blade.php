@@ -12,26 +12,26 @@
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
 
-                    	@if(count($errors)>0)
-                    	<div class="alert alert-danger">
+                      @if(count($errors)>0)
+                      <div class="alert alert-danger">
                            @foreach($errors->all() as $err)
                                    {{$err}}<br>
                            @endforeach()
                            </div>
-                    	@endif()
+                      @endif()
 
-                    <!-- 	@if(session('thongbao'))
-                    	<div class="alert alert-success">
-                    		{{session('thongbao')}}
-                    		@endif()
-                    	</div> -->
+                    <!--  @if(session('thongbao'))
+                      <div class="alert alert-success">
+                        {{session('thongbao')}}
+                        @endif()
+                      </div> -->
 
                         <form action="Admin/Film/Them" method="POST" enctype="multipart/form-data">
                            <input type="hidden" name="_token" value="{{csrf_token()}}" />
                             
                              
                             <div class="form-group">
-               
+                                <label>Tên Phim</label>
                                 <input class="form-control" name="Name" placeholder="Nhập Tên Phim" />
                                   
                             </div>
@@ -56,11 +56,15 @@
                                   
                             </div>
                              
-                               <label>Source</label>
+                              
                            
                             <div class="form-group">
                                <label>Video</label>
                                <input type="file" name="Video">
+                           </div>
+                           <div class="form-group">
+                               <label>Hình ảnh</label>
+                               <input type="file" name="HinhAnh">
                            </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
                             <button type="reset" class="btn btn-default">Reset</button>
