@@ -131,11 +131,14 @@ Route::get("CommentTest","CommentController@CommentTest");
 
 Route::get("SearchFilm/{id}","FilmController@SearchFilm");
 
-Route::post("login","UserController@postLogin");
 Route::get("/LogOut","UserController@LogOut");
 
-Route::post("signup","UserController@Signup");
 Route::get("signup","UserController@signUpForm");
+Route::post("signup","UserController@Signup");
+
+Route::get("login","UserController@loginForm");
+Route::post("login","UserController@postLogin");
+
 
 
 
