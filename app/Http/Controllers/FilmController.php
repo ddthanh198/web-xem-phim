@@ -15,6 +15,7 @@ class FilmController extends Controller
     public function GetThem(){
     	return view('Admin/Film/Them');
     }
+    
     public function PostThem(Request $request){
    $film=new Film;
         if($request->hasFile('Video')){

@@ -70,10 +70,6 @@
 				</a> <!-- #branding -->
 
 				<div class="main-navigation">
-					<form action="#" class="search-form">
-						<input type="text" placeholder="Search...">
-						<button><i class="fa fa-search"></i></button>
-					</form>
 					<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 
 					<ul class="menu">

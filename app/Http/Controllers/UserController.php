@@ -40,11 +40,13 @@ class UserController extends Controller
         $user->save();
     	return redirect('Admin/User/DanhSach');
     }
+    
     public function Xoa($id){
       $user=User::find($id);
         $user->delete();
         return redirect('Admin/User/DanhSach');
     }
+
     public function postLogin(Request $request){
         $name=$request->UserName;
         $password=$request->Password;
@@ -52,12 +54,13 @@ class UserController extends Controller
         return redirect("/");
        }
        else return redirect("login");
-        
     }
+
     public function LogOut(){
         Auth::logout();
         return redirect("/");
     }
+
     public function Signup(Request $request){
         $user=new User;
         $user->name=$request->Name;
