@@ -50,10 +50,14 @@ class UserController extends Controller
     public function postLogin(Request $request){
         $name=$request->UserName;
         $password=$request->Password;
-       if(Auth::attempt(["name"=>$name,"password"=>$password])){
-        return redirect("/");
-       }
-       else return redirect("login");
+
+        if (User::where('name', '=', $name) -> exists()) {
+            if (User::where('password', '=', $password) -> exists()) {
+                return redirect("/");
+            }
+        }
+
+        return redirect("login");
     }
 
     public function LogOut(){
@@ -65,9 +69,19 @@ class UserController extends Controller
         $user=new User;
         $user->name=$request->Name;
         $user->email=$request->Email;
-         $user->phonenumber=$request->PhoneNumber;
-         $user->password=bcrypt($request->password);
+        $user->phonenumber=$request->PhoneNumber;
+        // $user->password=bcrypt($request->password);
+        $user->password=$request->password;
         $user->save();
-        return view("login");
+        return view('login');
     }
+
+    public function signUpForm() {
+        return view('signup');
+    }
+
+    public function loginForm() {
+        return view('login');
+    }
+
 }
