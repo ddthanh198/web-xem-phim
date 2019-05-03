@@ -1709,7 +1709,7 @@ ul.arrow li a:hover {
 .main-navigation {
   float: right;
   background: white;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .main-navigation .menu-toggle, .main-navigation .menu, .main-navigation .search-form {
