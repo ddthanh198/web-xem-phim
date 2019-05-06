@@ -53,7 +53,7 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id`, `name`, `numFilm`) VALUES
 (1, 'Hành Động', NULL);
-
+(2, 'Tình Cảm',NULL);
 -- --------------------------------------------------------
 
 --
