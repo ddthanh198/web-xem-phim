@@ -1,0 +1,160 @@
+/*============Phong-ngan-CSS===============*/
+ .listkind {
+  display: block;
+  
+  text-align: center;
+  border-bottom: 1px solid #ebebeb;
+
+}
+ .listkind a {
+  display: inline-block;
+  width: 18%;
+  height: auto;
+  font-weight: 400;
+  text-align: center;
+  color: gray;
+
+  border-radius:0 0 10px 10px; 
+  padding: 20px 10px; 
+  
+}
+.listkind a:hover {
+  color: #ffaa3c;
+  background-color: rgba(60,60,60,0.1);
+  font-weight: 800;
+
+}
+.info1{
+  margin-top: 30px;
+  height: 300px;
+  width: 100%;
+  //background-color: black;
+  position: relative;
+}
+.logofilm{
+  margin: 10px;
+  position: absolute;
+  float: left;
+ 
+  height: 100%;
+  width: 30%;
+  image-rendering:  crisp-edges;
+  background-image: url('../images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 7px;
+}
+.infofilm{
+  margin: 5px;
+  border-color: gray;
+  border: 3px solid ;
+  border-radius: 10px;
+  padding: 10px;
+  height: 100%;
+  width:60%; 
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-align: left;
+  font-weight: 600;
+  font-size: 17px;
+  overflow: auto;
+}
+.scroll::-webkit-scrollbar {
+    width: 10px;
+    background-color: gray;
+    
+} 
+.scroll::-webkit-scrollbar-track {
+      background-color: gray;
+      border-radius: 10px;
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+.scroll::-webkit-scrollbar-thumb {
+      background-color: rgba(30, 20, 4, 1); 
+        border-radius: 10px;
+} /* this will style the thumb, ignoring the track */
+ 
+.scroll::-webkit-scrollbar-button {
+      background-color: rgba(123,12,45,0.4);
+        border-radius: 10px;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+ 
+.scroll::-webkit-scrollbar-corner {
+      background-color: black;
+        border-radius: 10px;
+}
+.info2{
+  height: 70px;
+  position: relative;
+  width: 100%;
+  margin-top: 20px; 
+}
+.button_a{
+  margin:  10px;
+  display: block;
+  position: absolute;
+  float: left;
+  width: 30%;
+  height: 50px;
+  background-color: rgba(10,10,10,0.3);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: black;
+  padding: auto;
+  padding-top: 7px;
+}
+.button_a:hover{
+  font-weight: 700;
+  
+  background-color: rgba(10,10,10,1);
+  color: green;
+
+}
+.score{
+  height: 70px;
+  width: 60%;
+  position: absolute;
+  right: 0;
+  margin: 5px;
+  background-color: rgba(10,10,10,0.1);
+
+
+}
+.stargroup{
+  margin-left: 10%;
+ font-size: 40px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); 
+}
+
+.size20{
+  margin-left: 5%;
+  font-size: 20px;
+}
+.scoretext{
+  padding: 10px;
+  font-size: 20px;
+  position: relative;
+  top: 50%;
+  right: 20%;
+  transform: translateY(-50%); 
+}
+.info3{
+  width: 100%;
+  padding: 5%;
+}
+.info4{
+  max-height: 1000px;
+   width: 100%;
+  padding: 5%;
+  padding-left: 10%;
+  overflow: auto;
+}
+
+ /*=========================================*/
+
