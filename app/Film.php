@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class film extends Model
+class Film extends Model
 {
     //
     public $timestamps = false;

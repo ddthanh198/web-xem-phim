@@ -29,12 +29,16 @@ Route::get('/login', function () {
 Route::get('/signup', function () {
    return view('signup'); 
 });
-Route::get('/infor/{id}',['as'=>'infor','uses'=> 'HomeController@infor']);
+Route::get('/infor/{id}',['as'=>'infor','uses'=> 'InformationController@infor']);
 Route::get('/search', function () {
    return view('search'); 
 });
 
-Route::get('/watch/{id}',['as'=>'watch','uses'=>'HomeController@watch']);
+//Route::get('/watch/{id}',['as'=>'watch','uses'=>'HomeController@watch']);
+Route::get('/watch/{id}',function ($id){
+	return view('watch',['idFilm'=>$id]);
+});
+
 // Route::get("/about",function(){
 // 	return view('about');
 // });

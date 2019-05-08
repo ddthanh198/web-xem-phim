@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-		
+		<base href="{{asset('')}}">
 		<title>Movie Review</title>
 
 
@@ -14,32 +14,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-
-
    <!-- Comment-->
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-   
-
     <!-- Custom CSS -->
     <link href="admin_asset/dist/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="admin_asset/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
    <!-- Comment-->
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -47,19 +28,13 @@
 
 		<!-- Loading main css file -->
 		<link rel="stylesheet" href="style.css">
-		
-		<!--[if lt IE 9]>
-		<script src="js/ie-support/html5.js"></script>
-		<script src="js/ie-support/respond.js"></script>
-		<![endif]-->
 
-		<!-- 
         <!-- Bootstrap Core CSS -->
     <link href="font/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="font/css/shop-homepage.css" rel="stylesheet">
-    <link href="font/css/my.css" rel="stylesheet">
+    	<link href="font/css/my.css" rel="stylesheet">
 		
         <style type="text/css">
         	table {
@@ -74,7 +49,7 @@
 		  <?php 
                use App\Comment;
                use App\Film;
-               $idFilm=1;
+               
                 $comment=Comment::where('idFilm',$idFilm)->get();
                 $film=Film::where('id',$idFilm)->get()->shift();
                ?>
@@ -134,7 +109,7 @@
 	<br>
 </div>
 									<hr>
-										   <div class="well">
+				<div class="well">
                     <h4>Viết bình luận ...<span class="glyphicon glyphicon-pencil"></span></h4>
                   
                     	 

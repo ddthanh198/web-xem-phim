@@ -6,4 +6,4 @@ function changeStar(){
 		document.getElementById("star"+i).style.color="#fce903";
 	}
 }
-onload=changeStar();
+// onload=changeStar();
