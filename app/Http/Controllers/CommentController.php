@@ -9,8 +9,8 @@ class CommentController extends Controller
 {
     //
     public function DanhSach(){
-    	$comment=Comment::all();
-    	return view('Admin/Comment/DanhSach',['comment'=>$comment]);
+        $comment=Comment::all();
+        return view('Admin/Comment/DanhSach',['comment'=>$comment]);
     }
    
     public function Xoa($id){
@@ -31,7 +31,7 @@ class CommentController extends Controller
         $comment->iduser=$idUser;
         $comment->idFilm=$idFilm;
         $comment->content=$content;
-        $comment->time=now();
+        $comment->time="1997-04-02";
         $comment->save();
         $name=$comment->User->name;
        
