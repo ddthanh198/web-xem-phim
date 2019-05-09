@@ -15,26 +15,37 @@
     <meta name="author" content="">
 
    <!-- Comment-->
+
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="admin_asset/dist/css/sb-admin-2.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
-    <link href="admin_asset/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/admin_asset/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
    <!-- Comment-->
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
-		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 		<!-- Loading main css file -->
-		<link rel="stylesheet" href="style.css">
+
+		<link rel="stylesheet" href="/style.css">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
 
         <!-- Bootstrap Core CSS -->
-    <link href="font/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+
     <link href="font/css/shop-homepage.css" rel="stylesheet">
     	<link href="font/css/my.css" rel="stylesheet">
+
 		
         <style type="text/css">
         	table {
@@ -93,7 +104,7 @@
 								<div class="slider">
 									<div class="slides" >
 										<video controls="" width="800px" >
-											<source src="upload/film/cmm.mp4" type="video/mp4">
+											<source src="/upload/film/cmm.mp4" type="video/mp4">
 										</video>
 									</div>
 									<div><h3>Ten Phim</h3>
@@ -164,22 +175,22 @@
 								<div class="row">
 									<div class="col-sm-6 col-md-12">
 										<div class="latest-movie">
-											<a href="#"><img src="dummy/thumb-1.jpg" alt="Movie 1"></a>
+											<a href="#"><img src="/dummy/thumb-1.jpg" alt="Movie 1"></a>
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-12">
 										<div class="latest-movie">
-											<a href="#"><img src="dummy/thumb-2.jpg" alt="Movie 2"></a>
+											<a href="#"><img src="/dummy/thumb-2.jpg" alt="Movie 2"></a>
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-12">
 										<div class="latest-movie">
-											<a href="#"><img src="dummy/thumb-2.jpg" alt="Movie 2"></a>
+											<a href="#"><img src="/dummy/thumb-2.jpg" alt="Movie 2"></a>
 										</div>
 									</div>
 									<div class="col-sm-6 col-md-12">
 										<div class="latest-movie">
-											<a href="#"><img src="dummy/thumb-2.jpg" alt="Movie 2"></a>
+											<a href="#"><img src="/dummy/thumb-2.jpg" alt="Movie 2"></a>
 										</div>
 									</div>
 								</div>
@@ -418,7 +429,13 @@
             })
           })
         </script>
-		
+		<script type="text/javascript">
+			$(document).ready(function{
+				$("#Like").click(function{
+					alert(1);
+				})
+			})
+		</script>
  
 	</body>
 

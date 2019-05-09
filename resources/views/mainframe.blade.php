@@ -24,6 +24,7 @@
 	 
 
 
+
 </head>
 
 <body>
@@ -144,6 +145,7 @@
 	<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
 	<script src="{{asset('js/plugins.js')}}"></script>
 	<script src="{{asset('js/app.js')}}"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
 
 	</body>
