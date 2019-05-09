@@ -10,7 +10,7 @@ class Category extends Model
 {
     //
      public $timestamps = false;
-    protected $table="Category";
+    protected $table="category";
     public function filmHome(){
     	return $this->hasManyThrough('App\Film','App\FilmAndCategory','idFilm','idCategory','id');
     }
