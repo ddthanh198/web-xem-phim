@@ -132,11 +132,10 @@ Route::get("CommentTest","CommentController@CommentTest");
 
 Route::get("SearchFilm/{id}","FilmController@SearchFilm");
 
-<<<<<<< HEAD
-=======
+
 
 Route::post("login","UserController@postLogin");
->>>>>>> 71e747ce7e820b9cb38439928c58a0b84f7778d2
+
 Route::get("/LogOut","UserController@LogOut");
 
 Route::get("signup","UserController@signUpForm");
