@@ -14,7 +14,9 @@ class CreateDanhgiaTable extends Migration
     public function up()
     {
         Schema::create('danhgia', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('idFilm',11);
+            $table->integer('iduser',11);
+                $table->integer('Liked',11);
             $table->timestamps();
         });
     }

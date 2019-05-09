@@ -14,7 +14,11 @@ class CreateCommentTable extends Migration
     public function up()
     {
         Schema::create('comment', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id',11);
+            $table->integer('iduser',11);
+            $table->integer('idFilm',11);
+            $table->text('content');
+            $table->date('time');
             $table->timestamps();
         });
     }
