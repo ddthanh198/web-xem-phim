@@ -43,15 +43,7 @@
 
 		<!-- Loading main css file -->
 		<link rel="stylesheet" href="/css/style.css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 		
-		<link rel="stylesheet" href="/css/login.css"> 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-		
-		<!--[if lt IE 9]>
-		<script src="js/ie-support/html5.js"></script>
-		<script src="js/ie-support/respond.js"></script>
-		<![endif]-->
 </head>
 
 <body>
@@ -70,10 +62,7 @@
 				</a> <!-- #branding -->
 
 				<div class="main-navigation">
-					<form action="#" class="search-form">
-						<input type="text" placeholder="Search...">
-						<button><i class="fa fa-search"></i></button>
-					</form>
+					
 					<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 
 					<ul class="menu">
@@ -180,7 +169,7 @@
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
-		
+	
 
 	</body>
 
