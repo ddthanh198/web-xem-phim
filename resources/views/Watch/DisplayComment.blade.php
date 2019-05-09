@@ -122,7 +122,7 @@ style='font-size:24px;border:none;background-color: blue' ;
                               @if($idUser==$comment->iduser)
                                 <td style="text-align: right"><i class="fa fa-trash-o  fa-fw"></i><a href="Comment/Xoa/{{$comment->id}}"> Delete</a>
                                    
-                                <button  style='font-size:24px;border:none;background-color: white' name="Save" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-save fa-1.5x" ></i></button></a>
+                                <button  style='font-size:24px;border:none;background-color: white' name="Save" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-edit fa-1.5x" ></i></button></a>
                                @endif
                             </tr>
                             <tr style="background-color: pink">
