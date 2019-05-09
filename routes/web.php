@@ -29,7 +29,7 @@ Route::get('/login', function () {
 Route::get('/signup', function () {
    return view('signup'); 
 });
-Route::get('/infor/{id}',['as'=>'infor','uses'=> 'HomeController@infor']);
+Route::get('/infor/{id}',['as'=>'infor','uses'=> 'InformationController@infor']);
 Route::get('/search', function () {
    return view('search'); 
 });
