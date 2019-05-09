@@ -21,7 +21,8 @@ class CommentController extends Controller
      public function XoaComment($id){
       $comment=Comment::find($id);
         $comment->delete();
-       return redirect('WatchFilm');
+       
+
         
     }
     public function Insert($idFilm,$idUser,$content){
@@ -33,6 +34,7 @@ class CommentController extends Controller
         $comment->time="1997-04-02";
         $comment->save();
         $name=$comment->User->name;
+       
        return view("Watch/InsertComment",['comment'=>$comment]);
       
 
@@ -43,5 +45,11 @@ class CommentController extends Controller
     }
     public function CommentTest(){
         return view("WatchFilm/InsertComment");
+    }
+    public function EditComment($idComment){
+        $comment=Comment::Where('id',$idComment);
+         echo "<td><input class='form-control' name='EditComment' value='$comment->content' /></td>
+         <td></td><td></td>
+         <td>Hủy &nbsp;&nbsp;&nbsp; Lưu</td>";
     }
 }

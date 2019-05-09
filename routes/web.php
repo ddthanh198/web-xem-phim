@@ -57,7 +57,7 @@ Route::get("createDB",function(){
 
 
 //
-Route::group(['prefix'=>'Admin'],function(){
+Route::group(['prefix'=>'Admin','middleware'=>'Admin'],function(){
 
 Route::group(['prefix'=>'Film'],function(){
 Route::get('DanhSach','FilmController@DanhSach');
@@ -122,8 +122,9 @@ Route::get('WatchFilm',function(){
 });
 Route::get('/Ajax/Like/{idUser}/{idFilm}','AjaxController@GetLike');
 Route::get('/Ajax/Dislike/{idUser}/{idFilm}','AjaxController@GetDislike');
+Route::get('/Ajax/DestroyLike/{idUser}/{idFilm}','AjaxController@DestroyLike');
 Route::get('Comment/Xoa/{id}','CommentController@XoaComment');
-Route::get('Comment/Insert/{idFilm}/{idUser}/{content}','CommentController@Insert');
+
 Route::get('Comment','CommentController@Comment');
 
 Route::get('CheckUserAdmin/{user}','AdminController@CheckUserAdmin');
@@ -131,6 +132,11 @@ Route::get("CommentTest","CommentController@CommentTest");
 
 Route::get("SearchFilm/{id}","FilmController@SearchFilm");
 
+<<<<<<< HEAD
+=======
+
+Route::post("login","UserController@postLogin");
+>>>>>>> 71e747ce7e820b9cb38439928c58a0b84f7778d2
 Route::get("/LogOut","UserController@LogOut");
 
 Route::get("signup","UserController@signUpForm");
@@ -141,5 +147,18 @@ Route::post("login","UserController@postLogin");
 
 
 
+Route::group(['middleware'=>['web']],function(){
+ Route::get("Session",function(){
+ 	Session::put('Test','Laravel');
+ 	echo "đã chạy session";
+ });
+ Route::get('Comment/Insert/{idFilm}/{idUser}/{content}','CommentController@Insert');
+});
+
+Route::get('WatchFilm/{id}','FilmController@WatchFilm');
 
 
+
+
+Route::get("EditComment/{idComment}","CommentController@EditComment");
+Route::get("RightFilm/{id}","FilmController@RightFilm");
