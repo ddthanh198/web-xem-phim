@@ -165,79 +165,208 @@ style='font-size:24px;border:none;background-color: blue' ;
               </div>
             </div> 
             
-           
+            <div class="row">
+              <div class="col-md-4">
+                <h2 class="section-title">December premiere</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                <ul class="movie-schedule">
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                </ul> <!-- .movie-schedule -->
+              </div>
+              <div class="col-md-4">
+                <h2 class="section-title">November premiere</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                <ul class="movie-schedule">
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                </ul> <!-- .movie-schedule -->
+              </div>
+              <div class="col-md-4">
+                <h2 class="section-title">October premiere</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                <ul class="movie-schedule">
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                  <li>
+                    <div class="date">16/12</div>
+                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                  </li>
+                </ul> <!-- .movie-schedule -->
+              </div>
+            </div>
           </div>
         </div> <!-- .container -->
       </main>
-     
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="widget">
+                <h3 class="widget-title">About Us</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia tempore vitae mollitia nesciunt saepe cupiditate</p>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="widget">
+                <h3 class="widget-title">Recent Review</h3>
+                <ul class="no-bullet">
+                  <li><a href="#">Lorem ipsum dolor</a></li>
+                  <li><a href="#">Sit amet consecture</a></li>
+                  <li><a href="#">Dolorem respequem</a></li>
+                  <li><a href="#">Invenore veritae</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="widget">
+                <h3 class="widget-title">Help Center</h3>
+                <ul class="no-bullet">
+                  <li><a href="#">Lorem ipsum dolor</a></li>
+                  <li><a href="#">Sit amet consecture</a></li>
+                  <li><a href="#">Dolorem respequem</a></li>
+                  <li><a href="#">Invenore veritae</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="widget">
+                <h3 class="widget-title">Join Us</h3>
+                <ul class="no-bullet">
+                  <li><a href="#">Lorem ipsum dolor</a></li>
+                  <li><a href="#">Sit amet consecture</a></li>
+                  <li><a href="#">Dolorem respequem</a></li>
+                  <li><a href="#">Invenore veritae</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="widget">
+                <h3 class="widget-title">Social Media</h3>
+                <ul class="no-bullet">
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">Google+</a></li>
+                  <li><a href="#">Pinterest</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="widget">
+                <h3 class="widget-title">Newsletter</h3>
+                <form action="#" class="subscribe-form">
+                  <input type="text" placeholder="Email Address">
+                </form>
+              </div>
+            </div>
+          </div> <!-- .row -->
+
+          <div class="colophon">Copyright 2014 Company name, Designed by Themezy. All rights reserved</div>
+        </div> <!-- .container -->
+
+      </footer>
       
     </div>
     <!-- Default snippet for navigation -->
     
 
  
-      <script type="text/javascript">
+    
+      
    
+     <script type="text/javascript">
+    clicked = true;
     $(document).ready(function(){
       $click=<?php echo $Liked?>;
-       $idFilm=<?php echo $idFilm; ?>;
+        $("#Like").click(function(){
+            if(clicked){
+              if($click==1)  $(this).css('background-color', 'white');
+              else  {$(this).css('background-color', 'blue');
+                alert("Bạn đã thích video này nhé"); }
+                $("#Dislike").css('background-color', 'white');
+                clicked  = false;
+
+            } else {
+                $(this).css('background-color', 'white');
+                clicked  = true;
+            }   
+        });
+         $("#Dislike").click(function(){
+            if(clicked){
+             if($click==0)  $(this).css('background-color', 'white');
+              else  {$(this).css('background-color', 'blue');
+                alert("CMM"); }
+                $("#Like").css('background-color', 'white');
+                clicked  = false;
+            } else {
+                $(this).css('background-color', 'white');
+                clicked  = true;
+            }   
+        });
+
+    });
+    
+    // Color Like And DisLike
+  
+      $(document).ready(function(){
+        
+        $('#Like').click(function(){
+        $idFilm=<?php echo $idFilm; ?>;
        $idUser=<?php echo $idUser; ?>;
 
-        $("#Like").click(function(){
-         if($click==1){
-           alert($click);
-          $click=-1;
-            $(this).css('background-color', 'white');
-              alert("Bạn đã bỏ thích");
-           
-              $.get("Ajax/DestroyLike/"+$idUser+"/"+$idFilm,function(data){
-                        $("#Like").hmtl(data);
-          })
-         }
-         else{
-           alert($click);
-          $click=1;
-          
-            $(this).css('background-color', 'blue');
-                alert("Bạn đã thích video này nhé"); 
-                $("#Dislike").css('background-color', 'white');
-                 $.get("Ajax/Like/"+$idUser+"/"+$idFilm,function(data){
+          $.get("Ajax/Like/"+$idUser+"/"+$idFilm,function(data){
                        
           })
-         }
         })
+        
+        $('#Dislike').click(function(){
+        $idFilm=<?php echo $idFilm; ?>;
+       $idUser=<?php echo $idUser; ?>;
 
-         $("#Dislike").click(function(){
-         if($click==0){
-           alert($click);
-          $click=-1;
-            $(this).css('background-color', 'white');
-              alert("Bạn đã bỏ không thích");
-           
-              $.get("Ajax/DestroyLike/"+$idUser+"/"+$idFilm,function(data){
-                        $("#Like").hmtl(data);
-          })
-         }
-         else{
-           alert($click);
-          $click=0;
-          
-            $(this).css('background-color', 'blue');
-                alert("Bạn đã bỏ thích video này nhé"); 
-                $("#Like").css('background-color', 'white');
-                 $.get("Ajax/Dislike/"+$idUser+"/"+$idFilm,function(data){
+          $.get("Ajax/Dislike/"+$idUser+"/"+$idFilm,function(data){
                        
           })
-         }
         })
-
       })
-
-
-
-
-
-     //insertComment
+ //insertComment
         $(document).ready(function(){
       $("#ButtonInsertComment" ).click(function() {
        $idFilm=<?php echo $idFilm; ?>;
@@ -273,10 +402,7 @@ style='font-size:24px;border:none;background-color: blue' ;
             })
           })
         })
-      </script>
-      
-   
-   
+    </script>
    
     
     

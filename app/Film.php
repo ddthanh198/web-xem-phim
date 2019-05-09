@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class film extends Model
+class Film extends Model
 {
     //
     public $timestamps = false;
-     protected $table="Film";
+     protected $table="film";
     public function Comment(){
     	return $this->hasMany('App\Comment','idFilm','id');
     }

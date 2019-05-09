@@ -57,7 +57,7 @@ Route::get("createDB",function(){
 
 
 //
-Route::group(['prefix'=>'Admin','middleware'=>'Admin'],function(){
+Route::group(['prefix'=>'Admin'],function(){
 
 Route::group(['prefix'=>'Film'],function(){
 Route::get('DanhSach','FilmController@DanhSach');
@@ -122,7 +122,6 @@ Route::get('WatchFilm',function(){
 });
 Route::get('/Ajax/Like/{idUser}/{idFilm}','AjaxController@GetLike');
 Route::get('/Ajax/Dislike/{idUser}/{idFilm}','AjaxController@GetDislike');
-Route::get('/Ajax/DestroyLike/{idUser}/{idFilm}','AjaxController@DestroyLike');
 Route::get('Comment/Xoa/{id}','CommentController@XoaComment');
 
 Route::get('Comment','CommentController@Comment');
