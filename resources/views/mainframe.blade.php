@@ -68,7 +68,7 @@
 					<ul class="menu">
 						<li class="menu-item current-menu-item"><a href="/">Home</a></li>
 						<li class="menu-item"><a href="/review">Movie reviews</a></li>
-						  @if(Auth::User())  <li class="menu-item"><a href="#"></a><b>{{Auth::User()->name}}<b></li>
+						  @if(Auth::User())  <li class="menu-item"><a href="EditUser"><b>{{Auth::User()->name}}<b></a></li>
 						  	<li class="menu-item"><a href="/LogOut">Đăng Xuất</a></li>
   
   

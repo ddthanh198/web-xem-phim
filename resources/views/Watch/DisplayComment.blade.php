@@ -30,11 +30,17 @@ else $idUser=0;
                $film=Film::where('id','like','%'.$idFilm."%")->get()->shift();
                $idFilm=$film->id;
                 $comment=Comment::where('idFilm',$idFilm)->get();
-                
+                $danhgiaOld=new DanhGia;
+
                  $Liked=-1;
               if($idUser!=0){
                 $danhgia=DanhGia::where('idUser',$idUser)->where('idFilm',$idFilm)->get();
                 if(count($danhgia)>0) $danhgiaOld=$danhgia->shift();
+                else {
+                  $danhgiaOld->idUser=$idUser;
+                  $danhgiaOld->idFilm=$idFilm;
+                  $danhgiaOld->Liked=-1;
+                }
                 $Liked=$danhgiaOld->Liked;
               }
              echo $Liked;
@@ -106,11 +112,11 @@ style='font-size:24px;border:none;background-color: blue' ;
                     <table class="table table-striped  table-hover" id="dataTables-example">
              
               
-                     
-                        <tbody>
-                           @foreach($comment as $comment)
+                       @foreach($comment as $comment)
+                        <tbody id="Change{{$comment->id}}">
+                          
                            
-                            <tr class="odd gradeX" align="center" >
+                            <tr class="odd gradeX" align="center"  >
                                 <td class="Comment" IdComment="11" style="text-align: left;"><b>{{$comment->User->name}}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp{{$comment->time}}</td>
 
                                 <td></td>
@@ -120,9 +126,10 @@ style='font-size:24px;border:none;background-color: blue' ;
                                
                                 <td class="center"></td>
                               @if($idUser==$comment->iduser)
-                                <td style="text-align: right"><i class="fa fa-trash-o  fa-fw"></i><a href="Comment/Xoa/{{$comment->id}}"> Delete</a>
+                                <td style="text-align: right"><i class="fa fa-trash-o  fa-fw"></i><a class="DeleteComment" DeleteComment="{{$comment->id}}"> Delete</a>
                                    
-                                <button  style='font-size:24px;border:none;background-color: white' name="Save" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-save fa-1.5x" ></i></button></a>
+                                <button  style='font-size:24px;border:none;background-color: white' name="EditComment" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-pencil fa-1.5x" ></i></button>
+                              Edit</a>
                                @endif
                             </tr>
                             <tr style="background-color: pink">
@@ -134,10 +141,12 @@ style='font-size:24px;border:none;background-color: blue' ;
 
                             </tr>
                             <tr><td></td></tr>
-                            @endforeach
+
+                            
  
      
                         </tbody>
+                        @endforeach
                     </table>
               
                
@@ -191,7 +200,7 @@ style='font-size:24px;border:none;background-color: blue' ;
               alert("Bạn đã bỏ thích");
            
               $.get("Ajax/DestroyLike/"+$idUser+"/"+$idFilm,function(data){
-                        $("#Like").hmtl(data);
+                       
           })
          }
          else{
@@ -199,7 +208,7 @@ style='font-size:24px;border:none;background-color: blue' ;
           $click=1;
           
             $(this).css('background-color', 'blue');
-                alert("Bạn đã thích video này nhé"); 
+                alert("Bạn đã  video này nhé"); 
                 $("#Dislike").css('background-color', 'white');
                  $.get("Ajax/Like/"+$idUser+"/"+$idFilm,function(data){
                        
@@ -223,7 +232,7 @@ style='font-size:24px;border:none;background-color: blue' ;
           $click=0;
           
             $(this).css('background-color', 'blue');
-                alert("Bạn đã bỏ thích video này nhé"); 
+                alert("Bạn không thích video này nhé"); 
                 $("#Like").css('background-color', 'white');
                  $.get("Ajax/Dislike/"+$idUser+"/"+$idFilm,function(data){
                        
@@ -254,7 +263,30 @@ style='font-size:24px;border:none;background-color: blue' ;
             
            })
 })
-        $(document).ready(function(){
+       
+      
+          $(document).ready(function(){
+          $(".RightFilm").click(function(){
+            $Film=$(this).attr("RightFilm");
+            alert($Film);
+            $.get("RightFilm/"+$Film,function(data){
+              $("#InsertComment").html(data);
+            })
+          })
+        })
+//xóa comment
+      $(document).ready(function(){
+        $(".DeleteComment").click(function(){
+          $id=$(this).attr("DeleteComment");
+           $("#Change"+$id).html("");
+          $.get("DeleteComment/"+$id,function(data){
+           
+          })
+          
+        })
+      })
+      //EditComment
+       $(document).ready(function(){
       $(".ButtonEditComment" ).click(function() {
      $IdComment=$(this).attr("EditComment");
      alert($IdComment);
@@ -264,15 +296,6 @@ style='font-size:24px;border:none;background-color: blue' ;
             
            })
 })
-        $(document).ready(function(){
-          $(".RightFilm").click(function(){
-            $Film=$(this).attr("RightFilm");
-            alert($Film);
-            $.get("RightFilm/"+$Film,function(data){
-              $("#InsertComment").html(data);
-            })
-          })
-        })
       </script>
       
    

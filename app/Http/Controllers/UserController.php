@@ -13,33 +13,7 @@ class UserController extends Controller
         $user=User::all();
         return view('Admin/User/DanhSach',['user'=>$user]);
     }
-    public function GetThem(){
-        
-        return view('Admin/User/Them');
-    }
-    public function PostThem(Request $request){
-        $user=new User;
-        $user->name=$request->Name;
-        $user->email=$request->Email;
-         $user->phonenumber=$request->PhoneNumber;
-         $user->password=bcrypt($request->password);
-        $user->save();
-        return redirect('Admin/User/DanhSach');
-    }
-    public function GetSua($id){
-      $user=User::find($id);
-        return view('Admin/User/Sua',['user'=>$user]);
-    }
-    public function PostSua($id,Request $request){
-        $user=User::find($id);
-         
-        $user->name=$request->Name;
-        $user->email=$request->Email;
-         $user->phonenumber=$request->PhoneNumber;
-         $user->password=bcrypt($request->password);
-        $user->save();
-        return redirect('Admin/User/DanhSach');
-    }
+  
     public function Xoa($id){
       $user=User::find($id);
         $user->delete();
@@ -59,12 +33,46 @@ class UserController extends Controller
         return redirect("/");
     }
     public function Signup(Request $request){
+         $this->validate($request,
+            ['PhoneNumber'=>'required|min:9',
+             'Name'=>'required|unique:User,name|'
+            ],
+            ['Name.required'=>'Tên UserName đã tồn tại',
+             'Phone.required'=>"Số điện thoại nhập tối thiểu 10 ký tự"
+            ]);
         $user=new User;
+        $user->admin=0;
         $user->name=$request->Name;
         $user->email=$request->Email;
          $user->phonenumber=$request->PhoneNumber;
          $user->password=bcrypt($request->password);
         $user->save();
-        return view("login");
+        return redirect("login");
+    }
+    public function CheckUser($name){
+           $data=User::Where('name',$name)->get();
+        if(count($data)>0) echo "Tên UserName Đã Tồn tại";
+       else echo "Tên UserName được nhé";
+    }
+    public function GetEditUser(){
+        return view("Admin/User/Sua");
+    }
+    public function PostEditUser(Request $request){
+        $user=Auth::User();
+         $this->validate($request,
+            ['PhoneNumber'=>'required|min:9',
+             'Name'=>'required|unique:User,name|'
+            ],
+            ['Name.required'=>'Tên UserName đã tồn tại',
+             'Phone.required'=>"Số điện thoại nhập tối thiểu 10 ký tự",
+            ]);
+        
+        $user->admin=0;
+        $user->name=$request->Name;
+        $user->email=$request->Email;
+         $user->phonenumber=$request->PhoneNumber;
+         $user->password=bcrypt($request->password);
+        $user->save();
+        return redirect("/");
     }
 }

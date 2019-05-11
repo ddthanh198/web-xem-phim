@@ -16,7 +16,7 @@
                             
                              <div class="form-group">
                                 <label>Name</label>
-                                <input class="form-control" name="Name" placeholder="{{$category->name}}" />
+                                <input class="form-control" name="Name" value="{{$category->name}}" />
                             </div>
                            
                             <button type="submit" class="btn btn-default">Category Update</button>

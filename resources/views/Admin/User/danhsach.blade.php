@@ -23,12 +23,13 @@
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Delete</th>
-                                <td>Edit</td>
+                               
 
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($user as $user)
+                            @if($user->admin==0)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
@@ -37,8 +38,9 @@
                                
                                
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="Admin/User/Xoa/{{$user->id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="Admin/User/Sua/{{$user->id}}">Edit</a></td>
+                        
                             </tr>
+                            @endif
                             @endforeach()
                         </tbody>
                     </table>

@@ -1,43 +1,103 @@
-@extends('Admin.Layout.index')
-@section('Content')
-<!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">User
-                            <small>Thêm</small>
-                        </h1>
+@extends('mainframe')
+@section('title')
+<title>Movie Review | Review</title>
+@endsection
+@section('webMain')
+<?php 
+use Illuminate\Support\Facades\Auth;
+$user=Auth::User();
+?>
+<main>
+    <div class="container">
+        <div class=" bg-light signup-form">
+             @if(count($errors)>0)
+                        <div class="alert alert-danger">
+                          @foreach($errors->all() as $err)
+                          {{$err}}
+                          @endforeach()
+                        </div>
+                        @endif()
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <form action="signup" method="post">
+                         <input type="hidden" name="_token" value="{{csrf_token()}}" />
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="PhoneNumber" class="form-control" placeholder="Phone Number" type="text" value="{{$user->phonenumber}}">
                     </div>
-                    <!-- /.col-lg-12 -->a
-                    <div class="col-lg-7" style="padding-bottom:120px">
-                        <form action="Admin/User/Sua/{{$user->id}}" method="POST">
-                            <input type="hidden" name="_token" value="{{csrf_token()}}" />
-                           
-                             <div class="form-group">
-                                <label>Name</label>
-                                <input class="form-control" name="Name" placeholder="" value="{{$user->name}}" />
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input class="form-control" name="Email" placeholder="" value="{{$user->email}}" />
-                            </div>
-                             <div class="form-group">
-                                <label>PhoneNumber</label>
-                                <input class="form-control" name="PhoneNumber" placeholder="" value="{{$user->phonenumber}}" />
-                            </div>
-                             <div class="form-group">
-                                <label>Password</label>
-                                <input class="form-control" name="password" placeholder="Password"  type="password"/>
-                            </div>
-                            <button type="submit" class="btn btn-default">User Add</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
-                        <form>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="Email" class="form-control" placeholder="Email address" type="email" value="{{$user->email}}">
+                    </div> 
+                    
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="Name" class="form-control" placeholder="Username" type="text" id="Name" value="{{$user->name}}">
+
                     </div>
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
-        @endsection
+                      <div id="ErrorUserName"></div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input name="password" class="form-control" placeholder="Create password" type="password" id="CreatePassword">
+                    </div> 
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" placeholder="Repeat password" type="password" id="RepeatPassword">
+                      
+                    </div> 
+                      <div id="ErrorPassword" ></div>
+                    <div class="form-group" id="Signup"> 
+                        <button type="submit" class="btn btn-primary btn-block" > Create Account </button>
+                    </div> 
+                    
+                    <p class="text-center">Have an account? <a href="login">Log In</a> </p>
+                   
+
+                </form>
+        </div> <!-- card.// -->
+
+    </div>
+
+</main>
+
+
+  <script type="text/javascript">
+     $CreatePassword="1";
+     $RepeatPassword="-1";
+     //kiểm tra 2 mật khẩu có trùng nhau không
+          $(document).ready(function(){
+            $("#RepeatPassword").blur(function(){
+               $CreatePassword=$("#CreatePassword").val();
+               $RepeatPassword=$(this).val();
+            if($CreatePassword!=$RepeatPassword){
+                $("#ErrorPassword").html("Mật khẩu không khớp");
+                $("#Signup").html('<div class="form-group" id="Signup"><div  class="btn btn-primary btn-block" > Not Create </div></div>');
+            }
+            else {$("#ErrorPassword").html("Mật khẩu khớp");
+            $("#Signup").html('<div class="form-group" id="Signup"><button type="submit" class="btn btn-primary btn-block" > Create Account </div></div>');
+        }
+
+            })
+          $("#Name").blur(function(){
+            $name=$(this).val();
+           
+            $.get("CheckUser/"+$name,function(data){
+                $("#ErrorUserName").html(data);
+            })
+          })
+          })
+        
+    </script>
+
+@endsection

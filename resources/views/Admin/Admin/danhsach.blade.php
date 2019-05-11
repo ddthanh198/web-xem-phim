@@ -1,5 +1,10 @@
 @extends('Admin.Layout.index')
 @section('Content')
+<?php 
+use Illuminate\Support\Facades\Auth;
+$user=Auth::User();
+$id=$user->id;
+?>
   <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -10,11 +15,7 @@
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
-                    @if(session('ThongBao'))
-                        <div class="alert alert-success">
-                            {{session('ThongBao')}}
-                            @endif()
-                        </div>
+                   
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
@@ -29,16 +30,25 @@
                         </thead>
                         <tbody>
                             @foreach($admin as $admin)
+                            @if($admin->admin==1||$admin->admin==2)
                             <tr class="odd gradeX" align="center">
-                                <td>{{$admin->id}}</td>
+                               @if($admin->id==$id)
+                                <th>{{$admin->id}}</th>
+                                @else <td>{{$admin->id}}</td>
+                                @endif
                                 <td>{{$admin->name}}</td>
                                 <td>{{$admin->email}}</td>
                                 
                                
-                               
+                               @if($admin->id==$id||$user->admin==2)
                                 <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="Admin/Admin/Xoa/{{$admin->id}}"> Delete</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="Admin/Admin/Sua/{{$admin->id}}">Edit</a></td>
+                                @else
+                                <td></td>
+                                <td></td>
+                                @endif
                             </tr>
+                            @endif
                             @endforeach()
                         </tbody>
                     </table>

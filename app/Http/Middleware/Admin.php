@@ -17,7 +17,7 @@ class Admin
     {
         if(Auth::check()){
             $user=Auth::user();
-            if($user->admin==1)
+            if($user->admin==1||$user->admin==2)
             return $next($request);
             else return redirect('login');
 

@@ -36,7 +36,22 @@
                                   
                             </div>
                              
+                               <div class="form-group">
+                                <label>Content</label>
+                                <input class="form-control" name="Content" value="{{$film->content}}" />
+                                  
+                            </div>
                             
+                                <div class="form-group">
+                                <label>NSX</label>
+                                <input class="form-control" name="NSX" value="{{$film->NSX}}" />
+                                  
+                            </div>
+                              <div class="form-group">
+                                <label>Auth</label>
+                                <input class="form-control" name="Author" value="{{$film->author}}" />
+                                  
+                            </div>
                               <label>Nổi Bật</label>
                             <div class="form-group">
                
@@ -60,14 +75,13 @@
                                 <input class="form-control" name="Source" placeholder=""  value="{{$film->source}}" />
                                   
                             </div>  
-                            <div class="form-group">
-                               <label>Hình ảnh</label>
-                               <input type="file" name="HinhAnh" value="{{$film->hinhanh}}">
-                           </div>
-                              
-                            <div class="form-group">
+                          <div class="form-group">
                                <label>Video</label>
-                               <input type="file" name="Video" value="{{$film->video}}">
+                               <input type="file" name="Video">
+                           </div>
+                           <div class="form-group">
+                               <label>Hình ảnh</label>
+                               <input type="file" name="HinhAnh">
                            </div>
                             
                            

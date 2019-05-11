@@ -19,7 +19,9 @@ Route::get('/', function () {
     return view('main');
 
 });
-
+Route::get('home',function(){
+	return view('home');
+});
 Route::get('/review', function () {
    return view('review'); 
 });
@@ -29,7 +31,7 @@ Route::get('/login', function () {
 Route::get('/signup', function () {
    return view('signup'); 
 });
-Route::get('/infor/{id}',['as'=>'infor','uses'=> 'InformationController@infor']);
+Route::get('/infor/{id}',['as'=>'infor','uses'=> 'HomeController@infor']);
 Route::get('/search', function () {
    return view('search'); 
 });
@@ -79,10 +81,6 @@ Route::get('Xoa/{id}','CategoryController@Xoa');
 
 Route::group(['prefix'=>'User'],function(){
 Route::get('DanhSach','UserController@DanhSach');
-Route::get('Them','UserController@GetThem');
-Route::post('Them','UserController@PostThem');
-Route::get('Sua/{id}','UserController@GetSua');
-Route::post('Sua/{id}','UserController@PostSua');
 Route::get('Xoa/{id}','UserController@Xoa');
 });
 
@@ -122,11 +120,16 @@ Route::get('WatchFilm',function(){
 });
 Route::get('/Ajax/Like/{idUser}/{idFilm}','AjaxController@GetLike');
 Route::get('/Ajax/Dislike/{idUser}/{idFilm}','AjaxController@GetDislike');
+Route::get('/Ajax/DestroyLike/{idUser}/{idFilm}','AjaxController@DestroyLike');
 Route::get('Comment/Xoa/{id}','CommentController@XoaComment');
 
 Route::get('Comment','CommentController@Comment');
 
+
+//kiểm tra tên name Admin đã tồn tại chưa
 Route::get('CheckUserAdmin/{user}','AdminController@CheckUserAdmin');
+//kiểm tra tên name User đã tồn tại chưa
+Route::get('CheckUser/{name}','UserController@CheckUser');
 Route::get("CommentTest","CommentController@CommentTest");
 
 Route::get("SearchFilm/{id}","FilmController@SearchFilm");
@@ -148,7 +151,13 @@ Route::group(['middleware'=>['web']],function(){
 Route::get('WatchFilm/{id}','FilmController@WatchFilm');
 
 
-
-
+//Xóa Comment
+Route::get("DeleteComment/{id}","CommentController@DeleteComment");
+//Editcoment
 Route::get("EditComment/{idComment}","CommentController@EditComment");
+Route::get("SaveEditComment/{content}/{idComment}","CommentController@SaveEditComment");
+//Tìm kiếm tên phim bằng auth 
 Route::get("RightFilm/{id}","FilmController@RightFilm");
+//Sửa UserName
+Route::get('EditUser','UserController@GetEditUser');
+Route::post('EditUser','UserController@PostEditUser');

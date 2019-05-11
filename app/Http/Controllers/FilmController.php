@@ -30,7 +30,9 @@ class FilmController extends Controller
            $film->hinhanh=$name;
         }
         
-        
+         $film->content=$request->Content;
+          $film->NSX=$request->NSX;
+           $film->author=$request->Author;
         $film->nation=$request->Nation;
         $film->NoiBat=$request->NoiBat;
         $film->name=$request->Name;
@@ -43,6 +45,7 @@ class FilmController extends Controller
         return view('Admin/Film/Sua',['film'=>$film]);
     }
     public function PostSua($id,Request $request){
+          $film=Film::find($id);
          if($request->hasFile('Video')){
             $file=$request->file('Video');
             $name=$file->getClientOriginalName();
@@ -55,7 +58,10 @@ class FilmController extends Controller
             $file->move('upload/hinhanh/',$name);
            $film->hinhanh=$name;
         }
-        $film=Film::find($id);
+      
+         $film->content=$request->Content;
+          $film->NSX=$request->NSX;
+           $film->author=$request->Author;
         $film->nation=$request->Nation;
         $film->NoiBat=$request->NoiBat;
         $film->name=$request->Name;

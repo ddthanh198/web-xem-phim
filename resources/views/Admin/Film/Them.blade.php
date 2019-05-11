@@ -35,11 +35,24 @@
                                 <input class="form-control" name="Name" placeholder="Nhập Tên Phim" />
                                   
                             </div>
-                              
+                              <div class="form-group">
+                                <label>Content</label>
+                                <input class="form-control" name="Content" placeholder="Nhập Nội dung phim" />
+                                  
+                            </div>
                             
-                              <label>NoiBat</label>
+                                <div class="form-group">
+                                <label>NSX</label>
+                                <input class="form-control" name="NSX" placeholder="Nhập Tên NSX" />
+                                  
+                            </div>
+                              <div class="form-group">
+                                <label>Auth</label>
+                                <input class="form-control" name="Author" placeholder="Nhập Tên Tác giả" />
+                                  
+                            </div>
                             <div class="form-group">
-               
+                           <label>NoiBat</label>
                                 <input class="form-control" name="NoiBat" placeholder="Nhập Nổi Bật" />
                                   
                             </div>

@@ -47,9 +47,17 @@ class CommentController extends Controller
         return view("WatchFilm/InsertComment");
     }
     public function EditComment($idComment){
-        $comment=Comment::Where('id',$idComment);
-         echo "<td><input class='form-control' name='EditComment' value='$comment->content' /></td>
-         <td></td><td></td>
-         <td>Hủy &nbsp;&nbsp;&nbsp; Lưu</td>";
+        $comment=Comment::where('id',$idComment)->get()->shift();
+       
+        return view("Watch/SaveEditComment",["comment"=>$comment]);
+    }
+    public function SaveEditComment($content,$idComment){
+       $comment=Comment::where('id',$idComment)->get()->shift();
+       $comment->content=$content;
+       $comment->save();
+        echo $comment->content;
+    }
+    public function DeleteComment($id){
+        $comment=Comment::find($id)->delete();
     }
 }

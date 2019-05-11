@@ -15,7 +15,7 @@
              
               
                      
-                        <tbody>
+                        <tbody id="Change{{$comment->id}}">
                           
                            
                             <tr class="odd gradeX" align="center" width="800px">
@@ -25,11 +25,16 @@
                                 
                                
                                
-                                <td class="center"></td>
-                                <td style="text-align: right"><i class="fa fa-trash-o  fa-fw"></i><a href="Comment/Xoa/{{$comment->id}}"> Delete</a><i class="fa fa-pencil fa-fw"></i> <a href="Admin/Admin/Sua">Edit</a></td>
+                               
+                                 
+                                <td style="text-align: right"><i class="fa fa-trash-o  fa-fw"></i><a class="DeleteComment" DeleteComment="{{$comment->id}}"> Delete</a>
+                                   
+                                <button  style='font-size:24px;border:none;background-color: white' name="EditComment" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-pencil fa-1.5x" ></i></button>
+                              Edit</a>
+                               
                             </tr>
-                            <tr style="background-color: pink">
-                                <td colspan="5">{{$comment->content}}</td>
+                            <tr style="background-color: pink" >
+                                 <td colspan="5" id="{{$comment->id}}" >{{$comment->content}}</td>
                             </tr>
                             <tr>
                                 <td style="text-align: left"><button  style='font-size:24px;border:none;background-color: white' name="like" id="Like" ><i class="fa fa-thumbs-up"></i></button>&nbsp;&nbsp;
@@ -42,3 +47,27 @@
                     </table>
              
         </body>
+        <!--Xóa Comment -->
+        <script type="text/javascript">
+             $(document).ready(function(){
+        $(".DeleteComment").click(function(){
+          $id=$(this).attr("DeleteComment");
+           $("#Change"+$id).remove();
+          $.get("DeleteComment/"+$id,function(data){
+           
+          })
+          
+        })
+      })
+       <!-- EditComment-->
+ $(document).ready(function(){
+      $(".ButtonEditComment" ).click(function() {
+     $IdComment=$(this).attr("EditComment");
+     alert($IdComment);
+     $.get("EditComment/"+$IdComment,function(data){
+         $("#"+$IdComment).html(data);
+     })
+            
+           })
+})
+        </script>

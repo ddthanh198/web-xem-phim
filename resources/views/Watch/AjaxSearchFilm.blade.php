@@ -25,16 +25,23 @@
 else $idUser=0;
 
 
-                $film=Film::where('id',$idFilm)->get()->shift();
+                $film=Film::where('id',100)->get()->shift();
                $idFilm=$film->id;
                 $comment=Comment::where('idFilm',$idFilm)->get();
                 $RightFilm=Film::where('NSX',$film->NSX)->take(4)->get();
 
                 
+                $danhgiaOld=new DanhGia;
+
                  $Liked=-1;
               if($idUser!=0){
                 $danhgia=DanhGia::where('idUser',$idUser)->where('idFilm',$idFilm)->get();
                 if(count($danhgia)>0) $danhgiaOld=$danhgia->shift();
+                else {
+                  $danhgiaOld->idUser=$idUser;
+                  $danhgiaOld->idFilm=$idFilm;
+                  $danhgiaOld->Liked=-1;
+                }
                 $Liked=$danhgiaOld->Liked;
               }
              echo $Liked;
@@ -257,60 +264,67 @@ style='font-size:24px;border:none;background-color: blue' ;
       
    
      <script type="text/javascript">
-    clicked = true;
+   
     $(document).ready(function(){
       $click=<?php echo $Liked?>;
+       $idFilm=<?php echo $idFilm; ?>;
+       $idUser=<?php echo $idUser; ?>;
+
         $("#Like").click(function(){
-            if(clicked){
-              if($click==1)  $(this).css('background-color', 'white');
-              else  {$(this).css('background-color', 'blue');
-                alert("Bạn đã thích video này nhé"); }
+         if($click==1){
+           alert($click);
+          $click=-1;
+            $(this).css('background-color', 'white');
+              alert("Bạn đã bỏ thích");
+           
+              $.get("Ajax/DestroyLike/"+$idUser+"/"+$idFilm,function(data){
+                       
+          })
+         }
+         else{
+           alert($click);
+          $click=1;
+          
+            $(this).css('background-color', 'blue');
+                alert("Bạn đã  video này nhé"); 
                 $("#Dislike").css('background-color', 'white');
-                clicked  = false;
+                 $.get("Ajax/Like/"+$idUser+"/"+$idFilm,function(data){
+                       
+          })
+         }
+        })
 
-            } else {
-                $(this).css('background-color', 'white');
-                clicked  = true;
-            }   
-        });
          $("#Dislike").click(function(){
-            if(clicked){
-             if($click==0)  $(this).css('background-color', 'white');
-              else  {$(this).css('background-color', 'blue');
-                alert("CMM"); }
+         if($click==0){
+           alert($click);
+          $click=-1;
+            $(this).css('background-color', 'white');
+              alert("Bạn đã bỏ không thích");
+           
+              $.get("Ajax/DestroyLike/"+$idUser+"/"+$idFilm,function(data){
+                        $("#Like").hmtl(data);
+          })
+         }
+         else{
+           alert($click);
+          $click=0;
+          
+            $(this).css('background-color', 'blue');
+                alert("Bạn không thích video này nhé"); 
                 $("#Like").css('background-color', 'white');
-                clicked  = false;
-            } else {
-                $(this).css('background-color', 'white');
-                clicked  = true;
-            }   
-        });
-
-    });
-    
-    // Color Like And DisLike
-  
-      $(document).ready(function(){
-        
-        $('#Like').click(function(){
-        $idFilm=<?php echo $idFilm; ?>;
-       $idUser=<?php echo $idUser; ?>;
-
-          $.get("Ajax/Like/"+$idUser+"/"+$idFilm,function(data){
+                 $.get("Ajax/Dislike/"+$idUser+"/"+$idFilm,function(data){
                        
           })
+         }
         })
-        
-        $('#Dislike').click(function(){
-        $idFilm=<?php echo $idFilm; ?>;
-       $idUser=<?php echo $idUser; ?>;
 
-          $.get("Ajax/Dislike/"+$idUser+"/"+$idFilm,function(data){
-                       
-          })
-        })
       })
- //insertComment
+
+
+
+
+
+     //insertComment
         $(document).ready(function(){
       $("#ButtonInsertComment" ).click(function() {
        $idFilm=<?php echo $idFilm; ?>;
@@ -327,7 +341,30 @@ style='font-size:24px;border:none;background-color: blue' ;
             
            })
 })
-        $(document).ready(function(){
+      
+     //Tìm kiếm tên film bằng auth 
+          $(document).ready(function(){
+          $(".RightFilm").click(function(){
+            $idFilm=$(this).attr("RightFilm");
+            alert($idFilm);
+            $.get("RightFilm/"+$idFilm,function(data){
+              $("#InsertComment").html(data);
+            })
+          })
+        })
+//xóa comment
+      $(document).ready(function(){
+        $(".DeleteComment").click(function(){
+          $id=$(this).attr("DeleteComment");
+           $("#Change"+$id).html("");
+          $.get("DeleteComment/"+$id,function(data){
+           
+          })
+          
+        })
+      })
+      //EditComment
+       $(document).ready(function(){
       $(".ButtonEditComment" ).click(function() {
      $IdComment=$(this).attr("EditComment");
      alert($IdComment);
@@ -337,16 +374,10 @@ style='font-size:24px;border:none;background-color: blue' ;
             
            })
 })
-        $(document).ready(function(){
-          $(".RightFilm").click(function(){
-            $Film=$(this).attr("RightFilm");
-            alert($Film);
-            $.get("RightFilm/"+$Film,function(data){
-              $("#InsertComment").html(data);
-            })
-          })
-        })
-    </script>
+      </script>
+      
+   
+   
    
     
     
@@ -360,4 +391,6 @@ style='font-size:24px;border:none;background-color: blue' ;
 
   
         </body>
+   
+    
    

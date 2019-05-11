@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Auth;
 							<div class="col-md-9">
 								<div class="slider">
 									<ul class="slides">
-										<li><a href="/watch/12345"><img src="dummy/slide-1.jpg" alt="Slide 1"></a></li>
-										<li><a href="/watch/12345"><img src="dummy/slide-2.jpg" alt="Slide 2"></a></li>
-										<li><a href="#"><img src="dummy/slide-3.jpg" alt="Slide 3"></a></li>
+										<li><a href="/watch/12345"><img src="dummy/slide-1.jpg" alt="Slide 1" height="100px" width="400px"></a></li>
+										<li><a href="/watch/12345"><img src="dummy/slide-2.jpg" alt="Slide 1"></a></li>
+										<li><a href="#"><img src="dummy/slide-3.jpg" alt="Slide 1"></a></li>
 									</ul>
 								</div>
 							</div>
@@ -44,7 +44,7 @@ use Illuminate\Support\Facades\Auth;
 							</div>
 							<div class="col-sm-6 col-md-3">
 								<div class="latest-movie">
-									<a href="#"><img src="dummy/thumb-4.jpg" alt="Movie 4"></a>
+									<a href="#"><img src="upload/hinhanh/natra1.jpg" alt="Movie 4"></a>
 								</div>
 							</div>
 							<div class="col-sm-6 col-md-3">

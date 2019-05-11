@@ -15,7 +15,7 @@
                             <!-- /input-group -->
                         </li>
                        <li>
-                            <a href="Admin/TheLoai/DanhSach"><i class="fa fa-bar-chart-o fa-fw"></i>Admin<span class="fa arrow"></span></a>
+                            <a href="Admin/TheLoai/DanhSach"><i class="fa fa-user"></i>Admin<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="Admin/Admin/DanhSach">Danh Sách</a>
@@ -27,19 +27,11 @@
                             <!-- /.nav-second-level -->
                         </li>
                          <li>
-                            <a href="Admin/TheLoai/DanhSach"><i class="fa fa-bar-chart-o fa-fw"></i>User<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="Admin/User/DanhSach">Danh Sách</a>
-                                </li>
-                                <li>
-                                    <a href="Admin/User/Them">Thêm</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="Admin/User/DanhSach"><i class="fa  fa-user"></i>User<span class="fa arrow"></span></a>
+                           
                         </li>
                         <li>
-                            <a href="Admin/TheLoai/DanhSach"><i class="fa fa-bar-chart-o fa-fw"></i>Flim<span class="fa arrow"></span></a>
+                            <a href="Admin/TheLoai/DanhSach"><i class="fa fa-film"></i>Flim<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="Admin/Film/DanhSach">Danh Sách</a>
@@ -63,7 +55,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="Admin/Comment/DanhSach"><i class="fa fa-users fa-fw"></i>Comment<span class="fa arrow"></span></a>
+                            <a href="Admin/Comment/DanhSach"><i class="fa fa-comments-o"></i>Comment<span class="fa arrow"></span></a>
                             
                             <!-- /.nav-second-level -->
                         </li>
