@@ -26,15 +26,26 @@ Route::get('/review', function () {
 Route::get('/login', function () {
    return view('login'); 
 });
+<<<<<<< HEAD
 // Route::get('/signup', function () {
 //    return view('signup'); 
 // });
 Route::get('/infor/{id}',['as'=>'infor','uses'=> 'HomeController@infor']);
+=======
+Route::get('/signup', function () {
+   return view('signup'); 
+});
+Route::get('/infor/{id}',['as'=>'infor','uses'=> 'InformationController@infor']);
+>>>>>>> 4aa25f1... nang cap trang information.blade, khôi phục lại mainframe, edit, delete bình luận đang còn lỗi
 Route::get('/search', function () {
    return view('search'); 
 });
 
-Route::get('/watch/{id}',['as'=>'watch','uses'=>'HomeController@watch']);
+//Route::get('/watch/{id}',['as'=>'watch','uses'=>'HomeController@watch']);
+Route::get('/watch/{id}',function ($id){
+	return view('watch',['idFilm'=>$id]);
+});
+
 // Route::get("/about",function(){
 // 	return view('about');
 // });
@@ -133,10 +144,19 @@ Route::get("CommentTest","CommentController@CommentTest");
 
 Route::get("SearchFilm/{id}","FilmController@SearchFilm");
 
+<<<<<<< HEAD
 
 Route::post("login","UserController@postLogin");
+=======
+>>>>>>> af3950bfbad09599f95c528ca76f29c19f9ff187
 Route::get("/LogOut","UserController@LogOut");
+
+Route::get("signup","UserController@signUpForm");
 Route::post("signup","UserController@Signup");
+
+Route::get("login","UserController@loginForm");
+Route::post("login","UserController@postLogin");
+
 
 
 Route::group(['middleware'=>['web']],function(){

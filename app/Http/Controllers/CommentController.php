@@ -31,7 +31,7 @@ class CommentController extends Controller
         $comment->iduser=$idUser;
         $comment->idFilm=$idFilm;
         $comment->content=$content;
-        $comment->time="1997-04-02";
+        $comment->time=now();
         $comment->save();
         $name=$comment->User->name;
        
