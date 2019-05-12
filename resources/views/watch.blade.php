@@ -15,11 +15,27 @@
     <meta name="author" content="">
 
    <!-- Comment-->
+<<<<<<< HEAD
 
     <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="admin_asset/dist/css/sb-admin-2.css" rel="stylesheet">
 
+=======
+<<<<<<< HEAD
+    <link href="/admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   
+
+    <!-- Custom CSS -->
+    <link href="/admin_asset/dist/css/sb-admin-2.css" rel="stylesheet">
+
+=======
+    <link href="admin_asset/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="admin_asset/dist/css/sb-admin-2.css" rel="stylesheet">
+>>>>>>> af3950bfbad09599f95c528ca76f29c19f9ff187
+>>>>>>> develop
     <!-- Custom Fonts -->
     <link href="/admin_asset/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
    <!-- Comment-->
@@ -29,23 +45,43 @@
 		<link href="/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 		<!-- Loading main css file -->
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 		<link rel="stylesheet" href="/style.css">
 		
 		<!--[if lt IE 9]>
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
+<<<<<<< HEAD
 
+=======
+=======
+		<link rel="stylesheet" href="style.css">
+>>>>>>> af3950bfbad09599f95c528ca76f29c19f9ff187
+>>>>>>> develop
 
         <!-- Bootstrap Core CSS -->
     <link href="/font/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
+<<<<<<< HEAD
 
     <link href="font/css/shop-homepage.css" rel="stylesheet">
     	<link href="font/css/my.css" rel="stylesheet">
 
+=======
+<<<<<<< HEAD
+    <link href="/font/css/shop-homepage.css" rel="stylesheet">
+    <link href="/font/css/my.css" rel="stylesheet">
+=======
+    <link href="font/css/shop-homepage.css" rel="stylesheet">
+    	<link href="font/css/my.css" rel="stylesheet">
+>>>>>>> af3950bfbad09599f95c528ca76f29c19f9ff187
+>>>>>>> develop
 		
         <style type="text/css">
         	table {

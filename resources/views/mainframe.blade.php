@@ -12,7 +12,10 @@
 	<!-- Loading third party fonts -->
 	<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
 	<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/login.css">
@@ -21,6 +24,32 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 	<link rel="stylesheet" href="/css/signup.css">
 	<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
+<<<<<<< HEAD
+=======
+
+	 
+
+
+<<<<<<< HEAD
+	<!--[if lt IE 9]>
+	<head>
+		<base href="{{asset('')}}">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+		@yield('title')
+		
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="/css/style.css">
+		
+=======
+>>>>>>> af3950bfbad09599f95c528ca76f29c19f9ff187
+>>>>>>> develop
 </head>
 
 <body>
@@ -39,6 +68,10 @@
 				</a> <!-- #branding -->
 
 				<div class="main-navigation">
+<<<<<<< HEAD
+=======
+					
+>>>>>>> develop
 					<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 
 					<ul class="menu">
@@ -140,7 +173,24 @@
 	<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
 	<script src="{{asset('js/plugins.js')}}"></script>
 	<script src="{{asset('js/app.js')}}"></script>
+<<<<<<< HEAD
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
 
 	</body>
+=======
+<<<<<<< HEAD
+	<script src="https://cdnjs.com/libraries/jquery.pjax"></script>
+
+
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/app.js"></script>
+	
+=======
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
+>>>>>>> af3950bfbad09599f95c528ca76f29c19f9ff187
+
+	</body>
+
+>>>>>>> develop

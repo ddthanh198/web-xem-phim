@@ -26,10 +26,20 @@ Route::get('/review', function () {
 Route::get('/login', function () {
    return view('login'); 
 });
+<<<<<<< HEAD
+// Route::get('/signup', function () {
+//    return view('signup'); 
+// });
+Route::get('/infor/{id}',['as'=>'infor','uses'=> 'HomeController@infor']);
+=======
 Route::get('/signup', function () {
    return view('signup'); 
 });
 Route::get('/infor/{id}',['as'=>'infor','uses'=> 'InformationController@infor']);
+<<<<<<< HEAD
+=======
+>>>>>>> 4aa25f1... nang cap trang information.blade, khôi phục lại mainframe, edit, delete bình luận đang còn lỗi
+>>>>>>> develop
 Route::get('/search', function () {
    return view('search'); 
 });
@@ -121,6 +131,10 @@ Route::get('/DangNhap',function(){
 	return view('Page.dangnhap');
 });
 //
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 Route::get('WatchFilm',function(){
 	return view('watch');
 });
@@ -136,9 +150,17 @@ Route::get("CommentTest","CommentController@CommentTest");
 
 Route::get("SearchFilm/{id}","FilmController@SearchFilm");
 
+<<<<<<< HEAD
 
 Route::post("login","UserController@postLogin");
 
+=======
+<<<<<<< HEAD
+
+Route::post("login","UserController@postLogin");
+=======
+>>>>>>> af3950bfbad09599f95c528ca76f29c19f9ff187
+>>>>>>> develop
 Route::get("/LogOut","UserController@LogOut");
 
 Route::get("signup","UserController@signUpForm");
@@ -161,6 +183,19 @@ Route::get('WatchFilm/{id}','FilmController@WatchFilm');
 
 
 
+<<<<<<< HEAD
 
 Route::get("EditComment/{idComment}","CommentController@EditComment");
 Route::get("RightFilm/{id}","FilmController@RightFilm");
+=======
+=======
+
+<<<<<<< HEAD
+Route::get('signup', 'SignUpController@signUpForm');
+Route::post('create', 'SignUpController@signUp');
+>>>>>>> 83837fcb7daf3c33bb36f61846a662266d41e361
+=======
+Route::get("EditComment/{idComment}","CommentController@EditComment");
+Route::get("RightFilm/{id}","FilmController@RightFilm");
+>>>>>>> 46df54a... nd admin comment like search
+>>>>>>> develop

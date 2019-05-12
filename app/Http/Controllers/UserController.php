@@ -69,7 +69,10 @@ class UserController extends Controller
         Auth::logout();
         return redirect("/");
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
     public function Signup(Request $request){
         $name = $request->Name;
         $users = DB::select('select * from user where name = ?', [$name]);
@@ -83,7 +86,10 @@ class UserController extends Controller
         $user->phonenumber=$request->PhoneNumber;
         $user->password=bcrypt($request->password);
         $user->save();
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
         return redirect("/");
     }
 

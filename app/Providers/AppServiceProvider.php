@@ -6,7 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use App\Category;
-use App\Film;
+use App\film;
+
 
 
 class AppServiceProvider extends ServiceProvider
