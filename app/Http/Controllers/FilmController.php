@@ -9,11 +9,11 @@ class FilmController extends Controller
 {
     //
     public function DanhSach(){
-    	$film=Film::all();
-    	return view('Admin/Film/DanhSach',['film'=>$film]);
+        $film=Film::all();
+        return view('Admin/Film/DanhSach',['film'=>$film]);
     }
     public function GetThem(){
-    	return view('Admin/Film/Them');
+        return view('Admin/Film/Them');
     }
     
     public function PostThem(Request $request){
@@ -30,14 +30,14 @@ class FilmController extends Controller
             $file->move('upload/hinhanh/',$name);
            $film->hinhanh=$name;
         }
-    	
+        
         
         $film->nation=$request->Nation;
         $film->NoiBat=$request->NoiBat;
         $film->name=$request->Name;
         $film->year=$request->Year;
         $film->save();
-    	return redirect('Admin/Film/Them');
+        return redirect('Admin/Film/Them');
     }
     public function GetSua($id){
       $film=Film::find($id);
@@ -72,7 +72,8 @@ class FilmController extends Controller
     public function SearchFilm($idFilm){
          return view("Watch/DisplayComment",["idFilm"=>$idFilm]);
     }
-    public function test($id){
-    return view("test",["id"=>$id]);
-    }
+   public function RightFilm($id){
+  return view("Watch/AjaxSearchFilm",["idFilm"=>$id]);
+   }
+
 }

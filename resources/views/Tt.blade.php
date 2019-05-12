@@ -1,50 +1,58 @@
-<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <!-- Bootstrap Core CSS -->
-    <link href="font/css/bootstrap.min.css" rel="stylesheet">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Laravel Ajax Pagination</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
 
-   
-    
-        <style type="text/css">
-          table {
-  border:none;
-}
-        </style>
-        <body>
-        	<?php 
-               use App\Comment;
-               use App\Film;
-               $idFilm=1;
-                $comment=Comment::where('idFilm',$idFilm)->get()->shift();
-                $film=Film::where('id',$idFilm)->get()->shift();
-               ?>
-        	 <table class="table table-striped  table-hover"  width="800px">
-             
-              
-                     
-                        <tbody>
-                          
-                           
-                            <tr class="odd gradeX" align="center" width="800px">
-                                <td  style="text-align: left;"><b>{{$comment->User->name}}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp{{$comment->time}}</td>
-                                <td width="500px"></td>
-                               
-                                
-                               
-                               
-                                <td class="center"></td>
-                                <td style="text-align: right"><i class="fa fa-trash-o  fa-fw"></i><a href="Comment/Xoa/{{$comment->id}}"> Delete</a><i class="fa fa-pencil fa-fw"></i> <a href="Admin/Admin/Sua">Edit</a></td>
-                            </tr>
-                            <tr style="background-color: pink">
-                            	<td colspan="5">{{$comment->content}}</td>
-                            </tr>
-                            <tr>
-                            	<td style="text-align: left"><button  style='font-size:24px;border:none;background-color: white' name="like" id="Like" ><i class="fa fa-thumbs-up"></i></button>&nbsp;&nbsp;
-                            	<button  style='font-size:24px;border:none;background-color: white' name="Dislike" id="Dislike" ><i class="fa fa-thumbs-down "></i> &nbsp;&nbsp;</button><a id="TraLoi" >Trả Lời</a>	</td>
+                @if (count($articles) > 0)
+                    <section class="articles">
+                        @include('articles.load')
+                    </section>
+                @endif
 
-                            </tr>
-                            <tr><td></td></tr>
-                            
-                        </tbody>
-                    </table>
-             
-        </body>
+            </div>
+
+            <div class="col-sm-3">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(function() {
+            $('body').on('click', '.pagination a', function(e) {
+                e.preventDefault();
+
+                $('#load a').css('color', '#dfecf6');
+                $('#load').append('<img style="position: absolute; left: 0; top: 0; z-index: 100000;" src="/images/loading.gif" />');
+
+                var url = $(this).attr('href');
+                getArticles(url);
+                window.history.pushState("", "", url);
+            });
+
+            function getArticles(url) {
+                $.ajax({
+                    url : url
+                }).done(function (data) {
+                    $('.articles').html(data);
+                }).fail(function () {
+                    alert('Articles could not be loaded.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
