@@ -1,0 +1,50 @@
+@extends('Admin.Layout.index')
+
+@section('Content')
+  <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">FilmAndCategory
+                            <small>List</small>
+                        </h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                    @if(session('ThongBao'))
+                        <div class="alert alert-success">
+                            {{session('ThongBao')}}
+                            @endif()
+                        </div>
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr align="center">
+                                <th>Film</th>
+                                <th>Category</th>
+                                
+                                <th>Delete</th>
+                                <td>Edit</td>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($category as $category)
+                            <tr class="odd gradeX" align="center">
+                                <td>{{$category->film->name}}</td>
+                                <td>{{$category->Category->name}}</td>
+                               
+                               
+                               
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="Admin/FilmAndCategory/Xoa/{{$category->idFilm}}/{{$category->idCategory}}"> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="Admin/FilmAndCategory/Sua/{{$category->idFilm}}/{{$category->idCategory}}">Edit</a></td>
+                            </tr>
+                            @endforeach()
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+@endsection
