@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Auth;
   if(Auth::User())  {
     $nguoidung=Auth::user();
     $idUser=$nguoidung->id;
-    echo $idUser;
+    
   }
 else $idUser=0;
 $idFilm=1;
@@ -42,144 +42,78 @@ $idFilm=1;
               
 
                 ?>
-    
-    
 
-    <div id="site-content">
-     
+<div id="InsertComment">
+ <main class="main-content">
+                <div class="container">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="slider">
+                                    <ul class="slides">
+                                        @foreach($RightFilm as $RF)
+                                        <li><a class="RightFilm" RightFilm="{{$RF->id}}"><img src="upload/hinhanh/{{$RF->hinhanh}}" alt="Slide 1"></a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-12">
+                                        <div class="latest-movie">
+                                          @foreach($RightFilm as $RF)
+                                          <a>{{$RF->name}}</a>
+                                        <a class="RightFilm" RightFilm="{{$RF->id}}"><img src="upload/hinhanh/{{$RF->hinhanh}}" alt="Slide 1"></a>
+                                        @endforeach
 
-         
-
-          <div class="mobile-navigation"></div>
+                                        </div>
+                                    </div>
+                                     <div class="col-sm-6 col-md-12">
+                                        <div class="latest-movie">
+                                         <div id="HienThiFilm"></div>
+           <div style="padding-left: 80px;"> <button id="XemThemFilm" >Xem Thêm</button></div>
+                                       
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div> <!-- .row -->
+                       
+                        
+                       
+                    </div>
+                </div> <!-- .container -->
+            </main>
         </div>
-      </header>
-       <main class="main-content">
-        <div class="container">
-          <div class="page">
-            <div class="row">
-              <div class="col-md-9">
-                <div class="slider">
-                  <div class="slides" >
-                    <video controls="" width="800px" >
-                      <source src="upload/film/cmm.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                 
-                 
-              
+        
+        <script type="text/javascript">
+      $(document).ready(function(){
+            $("#ButtonSearch").click(function(){
+                
+                 $TextSearch=$("#TextSearch").val();
+                 alert("DisPlayComment");
+                 $.get("SearchFilm/"+$TextSearch,function(data){
+                      $("#InsertComment").html(data);
+                 })
                
               
-               <!-- Hiển thị tất cả comment-->
 
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="row">
-                   @foreach($RightFilm as $RF)
-              
-
-                  <div class="col-sm-6 col-md-12">
-                    <div class="latest-movie">
-                      <a class="RightFilm" RightFilm="{{$RF->id}}">
-                     <img src="upload/hinhanh/{{$RF->hinhanh}}">
-                  </a>
-                    </div>
-                  </div>
-                 @endforeach
-                </div>
-              </div>
-            </div> 
-            
-           
-          </div>
-        </div> <!-- .container -->
-      </main>
-     
-      
-    </div>
-    <!-- Default snippet for navigation -->
-    
-
- 
-      <script type="text/javascript">
-   
+            })
+          })
+      //hiển thị thêm Film
+     $TrangFilm=-1;
     $(document).ready(function(){
-      
-
-        $("#Like").click(function(){
-         if($click==1){
-           alert($click);
-          $click=-1;
-            $(this).css('background-color', 'white');
-              alert("Bạn đã bỏ thích");
-           
-              $.get("Ajax/DestroyLike/"+$idUser+"/"+$idFilm,function(data){
-                       
-          })
-         }
-         else{
-           alert($click);
-          $click=1;
-          
-            $(this).css('background-color', 'blue');
-                alert("Bạn đã  video này nhé"); 
-                $("#Dislike").css('background-color', 'white');
-                 $.get("Ajax/Like/"+$idUser+"/"+$idFilm,function(data){
-                       
-          })
-         }
-        })
-
-         $("#Dislike").click(function(){
-         if($click==0){
-           alert($click);
-          $click=-1;
-            $(this).css('background-color', 'white');
-              alert("Bạn đã bỏ không thích");
-           
-              $.get("Ajax/DestroyLike/"+$idUser+"/"+$idFilm,function(data){
-                        $("#Like").hmtl(data);
-          })
-         }
-         else{
-           alert($click);
-          $click=0;
-          
-            $(this).css('background-color', 'blue');
-                alert("Bạn không thích video này nhé"); 
-                $("#Like").css('background-color', 'white');
-                 $.get("Ajax/Dislike/"+$idUser+"/"+$idFilm,function(data){
-                       
-          })
-         }
-        })
-
+      $("#XemThemFilm").click(function(){
+        $TrangFilm++;
+        alert($TrangFilm);
+        $.get("XemThemFilmHome/"+$TrangFilm,function(data){
+           $("#HienThiFilm").append(data);
       })
-
-
-
-
-
-     //insertComment
-        $(document).ready(function(){
-      $("#ButtonInsertComment" ).click(function() {
-       $idFilm=<?php echo $idFilm; ?>;
-       $idUser=<?php echo $idUser; ?>;
-     
-
-              $content=$("#Content").val();
-             
-           
-              $.get("Comment/Insert/"+$idFilm+"/"+$idUser+"/"+$content,function(data){
-                alert("InsertComment");
-               $("#InsertCommentTable").append(data);
-             })
-            
-           })
-})
-       
-      
-          $(document).ready(function(){
+      })
+    })
+      //xem film
+       $(document).ready(function(){
           $(".RightFilm").click(function(){
             $Film=$(this).attr("RightFilm");
             alert($Film);
@@ -188,44 +122,5 @@ $idFilm=1;
             })
           })
         })
-//xóa comment
-      $(document).ready(function(){
-        $(".DeleteComment").click(function(){
-          $id=$(this).attr("DeleteComment");
-           $("#Change"+$id).html("");
-          $.get("DeleteComment/"+$id,function(data){
-           
-          })
-          
-        })
-      })
-      //EditComment
-       $(document).ready(function(){
-      $(".ButtonEditComment" ).click(function() {
-     $IdComment=$(this).attr("EditComment");
-     alert($IdComment);
-     $.get("EditComment/"+$IdComment,function(data){
-         $("#"+$IdComment).html(data);
-     })
-            
-           })
-})
-      </script>
-      
-   
-   
-   
-    
-    
-
-
- 
-
-
-
-
-
-  
-        </body>
-   
+</script>
 @endsection

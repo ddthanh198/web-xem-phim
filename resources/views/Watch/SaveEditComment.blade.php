@@ -1,7 +1,7 @@
 <div id="Comment">
-<table>
-	<tr ><input size="100" type="text" name="" id="EditComment" value="{{$comment->content}}" ></tr>
-	<tr><hr></tr>
+<table >
+	<tr ><input size="97" type="text" name="" id="EditComment" value="{{$comment->content}}" ></tr>
+
 	<tr><a style="float:right;" id="SaveComment"><button>Lưu</button></a><a id="CancelComment"><button>Hủy</button></a></tr>
 </table>
 </div>

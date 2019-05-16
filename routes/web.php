@@ -16,11 +16,11 @@ use Illuminate\Database\Migrations\Migration;
 */
 
 Route::get('/', function () {
-    return view('main');
+    return view('home');
 
 });
 Route::get('home',function(){
-	return view('home');
+	return view('Test');
 });
 Route::get('/review', function () {
    return view('review'); 
@@ -59,6 +59,10 @@ Route::get("createDB",function(){
 
 
 //
+Route::group(['middleware'=>'Admin'],function(){
+	Route::get('Admin',function(){
+    return view('Admin/Layout/index');
+});
 Route::group(['prefix'=>'Admin'],function(){
 
 Route::group(['prefix'=>'Film'],function(){
@@ -109,6 +113,7 @@ Route::get('Xoa/{idFilm}/{idCategory}','FilmAndCategoryController@Xoa');
 });
 Route::post('TimKiem','FilmAndCategoryController@TimKiem');
 });
+});
 Route::get('/TrangChu','TrangChuController@category');
 
 Route::get('/DangNhap',function(){
@@ -132,7 +137,7 @@ Route::get('CheckUserAdmin/{user}','AdminController@CheckUserAdmin');
 Route::get('CheckUser/{name}','UserController@CheckUser');
 Route::get("CommentTest","CommentController@CommentTest");
 
-Route::get("SearchFilm/{id}","FilmController@SearchFilm");
+Route::get("SearchFilm/{TextSearch}","FilmController@SearchFilm");
 
 
 Route::post("login","UserController@postLogin");
@@ -161,3 +166,13 @@ Route::get("RightFilm/{id}","FilmController@RightFilm");
 //Sửa UserName
 Route::get('EditUser','UserController@GetEditUser');
 Route::post('EditUser','UserController@PostEditUser');
+//Xem Thêm Comment
+Route::get('XemThemComment/{Trang}/{idFilm}','CommentController@XemThemComment');
+Route::get('XemThemFilmHome/{TrangFilm}','FilmController@XemThemFilmHome');
+
+
+//Đăng nhập Admin
+Route::get('LoginAdmin',function(){
+	return view('LoginAdmin');
+});
+Route::post('LoginAdmin','AdminController@Login');

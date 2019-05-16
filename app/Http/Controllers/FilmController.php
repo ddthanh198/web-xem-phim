@@ -74,11 +74,24 @@ class FilmController extends Controller
         $film->delete();
         return redirect('Admin/Film/DanhSach');
     }
-    public function SearchFilm($idFilm){
-         return view("Watch/DisplayComment",["idFilm"=>$idFilm]);
+    public function SearchFilm($TextSearch){
+         return view("Watch/DisplayComment",["TextSearch"=>$TextSearch]);
     }
    public function RightFilm($id){
   return view("Watch/AjaxSearchFilm",["idFilm"=>$id]);
    }
-
+   public function XemThemFilm($TrangFilm,$TextSearch){
+       $count=Film::where('id','like','%'.$TextSearch."%")->get();
+        $RightFilm=Film::where('id','like','%'.$TextSearch."%")->get();
+        $RightFilm1=$RightFilm->splice($TrangFilm*4,4);
+        if(count($count)>$TrangFilm*4)
+        return view('Watch/XemThemFilm',['RightFilm'=>$RightFilm1]);
+   }
+  public function XemThemFilmHome($TrangFilm){
+    $count=Film::where('NoiBat',0)->get();
+    $RightFilm=Film::where('NoiBat',0)->get();
+    $RightFilm1=$RightFilm->splice($TrangFilm*4,4);
+    if(count($count)>$TrangFilm*4)
+        return view('Watch/XemThemFilm',['RightFilm'=>$RightFilm1]);
+  }
 }

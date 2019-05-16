@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     //
     public function DanhSach(){
-    	$admin=User::all();
+    	$admin=User::where('admin',1)->get();
     	return view('Admin/Admin/DanhSach',['admin'=>$admin]);
     }
     public function GetThem(){
@@ -65,6 +65,15 @@ class AdminController extends Controller
         if(count($data)>0) echo 0;
         else  echo 1;
         
+        
+    }
+     public function Login(Request $request){
+        $name=$request->UserName;
+        $password=$request->Password;
+       if(Auth::attempt(["name"=>$name,"password"=>$password])){
+        return redirect("Admin");
+       }
+       else return redirect("LoginAdmin");
         
     }
 }

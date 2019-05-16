@@ -44,7 +44,7 @@ use Illuminate\Support\Facades\Auth;
 							</div>
 							<div class="col-sm-6 col-md-3">
 								<div class="latest-movie">
-									<a href="#"><img src="upload/hinhanh/natra1.jpg" alt="Movie 4"></a>
+									<a href="#"><img src="dummy/thumb-4.jpg" alt="Movie 4"></a>
 								</div>
 							</div>
 							<div class="col-sm-6 col-md-3">
@@ -131,6 +131,7 @@ use Illuminate\Support\Facades\Auth;
 				</div> <!-- .container -->
 			</main>
 		</div>
+		
 		<script type="text/javascript">
 	  $(document).ready(function(){
             $("#ButtonSearch").click(function(){
@@ -145,5 +146,6 @@ use Illuminate\Support\Facades\Auth;
 
             })
           })
+	  
 </script>
 @endsection

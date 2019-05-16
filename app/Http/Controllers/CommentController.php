@@ -60,4 +60,12 @@ class CommentController extends Controller
     public function DeleteComment($id){
         $comment=Comment::find($id)->delete();
     }
+    public function XemThemComment($Trang,$idFilm){
+    
+        $count=Comment::where("idFilm",$idFilm)->get();
+        $comment=Comment::where("idFilm",$idFilm)->get();
+        $comment1=$comment->splice($Trang*4,4);
+        if(count($count)>$Trang*4)
+        return view('Watch/XemThemComment',['comment'=>$comment1]);
+    }
 }

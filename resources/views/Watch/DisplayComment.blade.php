@@ -25,9 +25,9 @@
 else $idUser=0;
 
 
-                $RightFilm=Film::where('id','like','%'.$idFilm."%")->take(4)->get();
+                $RightFilm=Film::where('name','like','%'.$TextSearch."%")->take(4)->get();
                 
-               $film=Film::where('id','like','%'.$idFilm."%")->get()->shift();
+               $film=Film::where('name','like','%'.$TextSearch."%")->get()->shift();
                $idFilm=$film->id;
                 $comment=Comment::where('idFilm',$idFilm)->get();
                 $danhgiaOld=new DanhGia;
@@ -44,7 +44,7 @@ else $idUser=0;
                 $Liked=$danhgiaOld->Liked;
               }
              echo $Liked;
-
+           $comment=$comment->splice(0,4);
                 ?>
     
     
@@ -65,7 +65,7 @@ else $idUser=0;
                 <div class="slider">
                   <div class="slides" >
                     <video controls="" width="800px" >
-                      <source src="upload/film/cmm.mp4" type="video/mp4">
+                      <source src="{{$film->source}}" type="video/mp4">
                     </video>
                   </div>
                   <div><h3>Ten Phim</h3>
@@ -91,6 +91,24 @@ style='font-size:24px;border:none;background-color: blue' ;
   <button  style='font-size:24px;border:none;background-color: white' name="Save" id="Save" ><i class="fa fa-save fa-1.5x"></i></button></a>
   <br>
 </div>
+
+                  <hr>
+                  
+                  <a style="float: left;"><img  src="upload/hinhanh/ndmanh.jpg" style="width:40px;"> </a>
+                  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <a>{{$film->year}}
+                      <br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <a>{{$film->author}}</a>
+                      <br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                    <a>-------------------------------------</a>
+                      <br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                   <a>{{$film->content}}</a>
+                    
+                   
+                      
+                   
+                    
+                   
+                  
                   <hr>
                   @if($idUser!=0)
                        <div class="well">
@@ -106,17 +124,17 @@ style='font-size:24px;border:none;background-color: blue' ;
                 </div>
                 @endif
                <!-- Hiển thị tất cả comment-->
-             
+            
             <table id="InsertCommentTable"></table>
-               
-                    <table class="table table-striped  table-hover" id="dataTables-example">
+               @foreach($comment as $comment)
+                    <table class="table table-striped  table-hover" id="dataTables-example" style="background-color: white;">
              
-              
-                       @foreach($comment as $comment)
+                  
+                       
                         <tbody id="Change{{$comment->id}}">
                           
                            
-                            <tr class="odd gradeX" align="center"  >
+                            <tr class="odd gradeX" align="center" style="background-color: grey;" >
                                 <td class="Comment" IdComment="11" style="text-align: left;"><b>{{$comment->User->name}}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp{{$comment->time}}</td>
 
                                 <td></td>
@@ -126,29 +144,28 @@ style='font-size:24px;border:none;background-color: blue' ;
                                
                                 <td class="center"></td>
                               @if($idUser==$comment->iduser)
-                                <td style="text-align: right"><i class="fa fa-trash-o  fa-fw"></i><a class="DeleteComment" DeleteComment="{{$comment->id}}"> Delete</a>
+                                <td style="text-align: right"> <button  style="border:none;" name="EditComment" class="DeleteComment" DeleteComment="{{$comment->id}}" ><i class="fa fa-trash-o  fa-fw"></i></button>
                                    
-                                <button  style='font-size:24px;border:none;background-color: white' name="EditComment" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-pencil fa-1.5x" ></i></button>
-                              Edit</a>
+                                <button  style="border:none;" name="EditComment" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-pencil fa-1.5x" ></i></button></td>
+                              
                                @endif
                             </tr>
-                            <tr style="background-color: pink">
+                            <tr >
                               <td colspan="5" id="{{$comment->id}}" >{{$comment->content}}</td>
                             </tr>
-                            <tr>
-                              <td style="text-align: left"><button  style='font-size:24px;border:none;background-color: white' name="like" id="Like" ><i class="fa fa-thumbs-up"></i></button>&nbsp;&nbsp;
-                              <button  style='font-size:24px;border:none;background-color: white' name="Dislike" id="Dislike" ><i class="fa fa-thumbs-down "></i> &nbsp;&nbsp;</button><a id="TraLoi" >Trả Lời</a>  </td>
+                           
+                          
 
-                            </tr>
-                            <tr><td></td></tr>
-
-                            
- 
+                           
      
                         </tbody>
-                        @endforeach
+                        
                     </table>
-              
+                    <br>
+                    @endforeach
+               <div id="HienThiComment"></div>
+    <div style="padding-left: 400px;"> <button id="XemThemComment" >Xem Thêm</button></div>
+ 
                
               
                <!-- Hiển thị tất cả comment-->
@@ -162,18 +179,22 @@ style='font-size:24px;border:none;background-color: blue' ;
 
                   <div class="col-sm-6 col-md-12">
                     <div class="latest-movie">
-                      <a class="RightFilm" RightFilm="{{$RF->id}}">
-                     <video controls="" width="400px" >
-                      <source src="{{$RF->source}}" type="video/mp4">
-                    </video>
+                      <a >
+                     @foreach($RightFilm as $RF)
+                     <a style="text-align: center;"><b>{{$RF->name}}</b></a>
+                                       <a>{{$RF->name}}</a>
+                                        <a class="RightFilm" RightFilm="{{$RF->id}}"><img src="upload/hinhanh/{{$RF->hinhanh}}" alt="Slide 1"></a>
+                                        @endforeach
                   </a>
                     </div>
                   </div>
                  @endforeach
+                  <div id="HienThiFilm"></div>
+           <div style="padding-left: 80px;"> <button id="XemThemFilm" >Xem Thêm</button></div>
                 </div>
               </div>
             </div> 
-            
+
            
           </div>
         </div> <!-- .container -->
@@ -296,6 +317,29 @@ style='font-size:24px;border:none;background-color: blue' ;
             
            })
 })
+       //Xem Thêm Comment
+       $Trang=0;
+    $(document).ready(function(){
+   $idFilm=<?php echo $idFilm; ?>;
+        $("#XemThemComment").click(function(){
+            $Trang++;
+      alert($Trang);
+      $.get("XemThemComment/"+$Trang+"/"+$idFilm,function(data){
+           $("#HienThiComment").append(data);
+      })
+        })
+
+       })
+    $TrangFilm=0;
+    $(document).ready(function(){
+      $("#XemThemFilm").click(function(){
+        $TrangFilm++;
+        alert($TrangFilm);
+        $.get("XemThemFilm/"+$TrangFilm+"/"+$TextSearch,function(data){
+           $("#HienThiFilm").append(data);
+      })
+      })
+    })
       </script>
       
    

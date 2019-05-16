@@ -19,10 +19,10 @@ class Admin
             $user=Auth::user();
             if($user->admin==1||$user->admin==2)
             return $next($request);
-            else return redirect('login');
+            else return redirect('LoginAdmin');
 
         }
         
-        else return redirect('login');
+        else return redirect('LoginAdmin');
     }
 }

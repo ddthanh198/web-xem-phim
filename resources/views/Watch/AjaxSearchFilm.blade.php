@@ -25,7 +25,7 @@
 else $idUser=0;
 
 
-                $film=Film::where('id',100)->get()->shift();
+                $film=Film::where('id',$idFilm)->get()->shift();
                $idFilm=$film->id;
                 $comment=Comment::where('idFilm',$idFilm)->get();
                 $RightFilm=Film::where('NSX',$film->NSX)->take(4)->get();
@@ -109,13 +109,13 @@ style='font-size:24px;border:none;background-color: blue' ;
                <!-- Hiển thị tất cả comment-->
              
             <table id="InsertCommentTable"></table>
-               
+               @foreach($comment as $comment)
                     <table class="table table-striped  table-hover" id="dataTables-example">
              
               
                      
                         <tbody>
-                           @foreach($comment as $comment)
+                           
                            
                             <tr class="odd gradeX" align="center" >
                                 <td class="Comment" IdComment="11" style="text-align: left;"><b>{{$comment->User->name}}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp{{$comment->time}}</td>
@@ -127,26 +127,23 @@ style='font-size:24px;border:none;background-color: blue' ;
                                
                                 <td class="center"></td>
                               @if($idUser==$comment->iduser)
-                                <td style="text-align: right"><i class="fa fa-trash-o  fa-fw"></i><a href="Comment/Xoa/{{$comment->id}}"> Delete</a>
+                                 <td style="text-align: right"> <button  style="border:none;" name="EditComment" class="DeleteComment" DeleteComment="{{$comment->id}}" ><i class="fa fa-trash-o  fa-fw"></i></button>
                                    
-                                <button  style='font-size:24px;border:none;background-color: white' name="Save" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-save fa-1.5x" ></i></button></a>
+                                <button  style="border:none;" name="EditComment" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-pencil fa-1.5x" ></i></button></td>
                                @endif
                             </tr>
                             <tr style="background-color: pink">
                               <td colspan="5" id="{{$comment->id}}" >{{$comment->content}}</td>
                             </tr>
-                            <tr>
-                              <td style="text-align: left"><button  style='font-size:24px;border:none;background-color: white' name="like" id="Like" ><i class="fa fa-thumbs-up"></i></button>&nbsp;&nbsp;
-                              <button  style='font-size:24px;border:none;background-color: white' name="Dislike" id="Dislike" ><i class="fa fa-thumbs-down "></i> &nbsp;&nbsp;</button><a id="TraLoi" >Trả Lời</a>  </td>
-
-                            </tr>
-                            <tr><td></td></tr>
-                            @endforeach
+                            
+                            
+                            
  
      
                         </tbody>
                     </table>
-              
+                    <br>
+              @endforeach
                
               
                <!-- Hiển thị tất cả comment-->
@@ -157,10 +154,9 @@ style='font-size:24px;border:none;background-color: blue' ;
                 <div class="row">
                 	 <div class="col-sm-6 col-md-12">
                     <div class="latest-movie">
+                      <a>{{$film->name}}</a>
                       <a class="RightFilm" RightFilm="{{$film->id}}">
-                     <video controls="" width="400px" >
-                      <source src="{{$film->source}}" type="video/mp4">
-                    </video>
+                    <img src="upload/hinhanh/{{$film->hinhanh}}">
                   </a>
                     </div>
                   </div>
@@ -169,87 +165,22 @@ style='font-size:24px;border:none;background-color: blue' ;
                @if($RF->id!=$id)
                   <div class="col-sm-6 col-md-12">
                     <div class="latest-movie">
+
                       <a class="RightFilm" RightFilm="{{$RF->id}}">
-                     <video controls="" width="400px" >
-                      <source src="{{$RF->source}}" type="video/mp4">
-                    </video>
+                        <a><b>{{$RF->name}}</b></a>
+                    <img src="upload/hinhanh/{{$RF->hinhanh}}">
                   </a>
                     </div>
                   </div>
                  @endif
                  @endforeach
+                 <div id="HienThiFilm"></div>
+           <div style="padding-left: 80px;"> <button id="XemThemFilm" >Xem Thêm</button></div>
                 </div>
               </div>
             </div> 
             
-            <div class="row">
-              <div class="col-md-4">
-                <h2 class="section-title">December premiere</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                <ul class="movie-schedule">
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                </ul> <!-- .movie-schedule -->
-              </div>
-              <div class="col-md-4">
-                <h2 class="section-title">November premiere</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                <ul class="movie-schedule">
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                </ul> <!-- .movie-schedule -->
-              </div>
-              <div class="col-md-4">
-                <h2 class="section-title">October premiere</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                <ul class="movie-schedule">
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                  <li>
-                    <div class="date">16/12</div>
-                    <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
-                  </li>
-                </ul> <!-- .movie-schedule -->
-              </div>
-            </div>
+           
           </div>
         </div> <!-- .container -->
       </main>
@@ -263,7 +194,7 @@ style='font-size:24px;border:none;background-color: blue' ;
     
       
    
-     <script type="text/javascript">
+      <script type="text/javascript">
    
     $(document).ready(function(){
       $click=<?php echo $Liked?>;
@@ -341,13 +272,13 @@ style='font-size:24px;border:none;background-color: blue' ;
             
            })
 })
+       
       
-     //Tìm kiếm tên film bằng auth 
           $(document).ready(function(){
           $(".RightFilm").click(function(){
-            $idFilm=$(this).attr("RightFilm");
-            alert($idFilm);
-            $.get("RightFilm/"+$idFilm,function(data){
+            $Film=$(this).attr("RightFilm");
+            alert($Film);
+            $.get("RightFilm/"+$Film,function(data){
               $("#InsertComment").html(data);
             })
           })
@@ -374,7 +305,31 @@ style='font-size:24px;border:none;background-color: blue' ;
             
            })
 })
+       //Xem Thêm Comment
+       $Trang=0;
+    $(document).ready(function(){
+   $idFilm=<?php echo $idFilm; ?>;
+        $("#XemThemComment").click(function(){
+            $Trang++;
+      alert($Trang);
+      $.get("XemThemComment/"+$Trang+"/"+$idFilm,function(data){
+           $("#HienThiComment").append(data);
+      })
+        })
+
+       })
+    $TrangFilm=0;
+    $(document).ready(function(){
+      $("#XemThemFilm").click(function(){
+        $TrangFilm++;
+        alert($TrangFilm);
+        $.get("XemThemFilm/"+$TrangFilm+"/"+$TextSearch,function(data){
+           $("#HienThiFilm").append(data);
+      })
+      })
+    })
       </script>
+      
       
    
    

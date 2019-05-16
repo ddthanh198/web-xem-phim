@@ -11,15 +11,15 @@
         </style>
         <body>
             
-             <table class="table table-striped  table-hover"  width="800px">
+              <table class="table table-striped  table-hover" id="dataTables-example" style="background-color: white;">
              
               
                      
                         <tbody id="Change{{$comment->id}}">
                           
                            
-                            <tr class="odd gradeX" align="center" width="800px">
-                                <td  style="text-align: left;" width="637px"><b>{{$comment->User->name}}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp{{$comment->time}}</td>
+                            <tr class="odd gradeX" align="center" width="800px" style="background-color: gray">
+                                <td  style="text-align: left;" width="700px;" ><b>{{$comment->User->name}}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp{{$comment->time}}</td>
                                 <td ></td>
                                
                                 
@@ -27,20 +27,16 @@
                                
                                
                                  
-                                <td style="text-align: right"><i class="fa fa-trash-o  fa-fw"></i><a class="DeleteComment" DeleteComment="{{$comment->id}}"> Delete</a>
+                                <td style="text-align: right"><button  style="border:none;" name="EditComment" class="DeleteComment" DeleteComment="{{$comment->id}}" ><i class="fa fa-trash-o  fa-fw"></i></button>
                                    
-                                <button  style='font-size:24px;border:none;background-color: white' name="EditComment" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-pencil fa-1.5x" ></i></button>
-                              Edit</a>
+                                <button  style='border:none;' name="EditComment" class="ButtonEditComment" EditComment="{{$comment->id}}" ><i class="fa fa-pencil " ></i></button>
+                              
                                
                             </tr>
-                            <tr style="background-color: pink" >
+                            <tr  >
                                  <td colspan="5" id="{{$comment->id}}" >{{$comment->content}}</td>
                             </tr>
-                            <tr>
-                                <td style="text-align: left"><button  style='font-size:24px;border:none;background-color: white' name="like" id="Like" ><i class="fa fa-thumbs-up"></i></button>&nbsp;&nbsp;
-                                <button  style='font-size:24px;border:none;background-color: white' name="Dislike" id="Dislike" ><i class="fa fa-thumbs-down "></i> &nbsp;&nbsp;</button><a id="TraLoi" >Trả Lời</a>  </td>
-
-                            </tr>
+                           
                             <tr><td></td></tr>
                             
                         </tbody>
